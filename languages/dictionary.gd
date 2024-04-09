@@ -1,20 +1,24 @@
+# LanguageManager node acts as the central manager for language changes
 extends Node
 
 var languages = {
 	"EN": {
+		"changeLanguage":"Change language",
+		"nowHungarian":"Now Hungarian",
+		"nowEnglish":"Now English",
 		"hello": "Hello",
 		"goodbye": "Goodbye",
 		"thisisatest": "This is a test"
 		# ... more translations
 	},
 		"HU": {
+		"changeLanguage":"Másik nyelv",
+		"nowHungarian":"Most magyarul",
+		"nowEnglish":"Most angolul",
 		"hello": "Szia",
 		"thisisatest": "Tesztelve lesz"
 		# translations after English is completed
 	},
-		"SE": {
-		# translations after English is completed
-	}
 }
 
 var current_language = "EN"
