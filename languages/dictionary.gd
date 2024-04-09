@@ -34,4 +34,5 @@ func set_language(language_code: String) -> void:
 # update all translatable nodes with the correct language text
 func update_translatable_nodes() -> void:
 	for node in get_tree().get_nodes_in_group("translatable"):
-		node.text = get_text(node.translation_key)
+		var key = node.name  # Use node's name as the key
+		node.text = get_text(key)
