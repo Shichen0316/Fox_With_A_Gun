@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dviqq3occ86yn"]
+
+[ext_resource type="Script" path="res://languages/dictionary.gd" id="1_lggrj"]
+
+[node name="LanguageManager" type="Node"]
+script = ExtResource("1_lggrj")

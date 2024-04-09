@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="CherryIceCream"
+run/main_scene="res://languages/languageTestUI.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LanguageManager="*res://languages/LanguageManager.tscn"
 
 [rendering]
 
