@@ -23,6 +23,13 @@ LanguageManager="*res://languages/LanguageManager.tscn"
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://controllers/": "yellow",
+"res://languages/": "gray"
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"
