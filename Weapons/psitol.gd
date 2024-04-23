@@ -5,7 +5,11 @@ var fire_rate = 0.1
 var can_fire = true
 
 @onready var animation_tree : AnimationTree = $AnimationTree
+@onready var gun_shot = $gunShot
+@onready var gun_pickup = $gunPickup
 
+		
+		
 func _ready():
 	animation_tree.active = true
 
@@ -27,6 +31,8 @@ func shoot():
 	can_fire = false
 	await get_tree().create_timer(fire_rate). timeout
 	can_fire = true
+	gun_shot.play()
+
 	
 func _input(event):
 	if Input. is_action_just_pressed("ui_pick"):
@@ -34,6 +40,7 @@ func _input(event):
 		for body in bodies:
 			if body.name == "playerFox" and get_node("/root/gameLevel/playerFox").canPick == true:
 				picked = true
+				gun_pickup.play()
 				get_node("/root/gameLevel/playerFox").canPick = false
 				
 	if Input. is_action_just_pressed("ui_drop") and picked == true:

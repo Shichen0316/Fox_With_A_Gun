@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj5wnucfdi7ph"]
+[gd_scene load_steps=17 format=3 uid="uid://cj5wnucfdi7ph"]
 
 [ext_resource type="Script" path="res://Weapons/rifle.gd" id="1_4necn"]
 [ext_resource type="Texture2D" uid="uid://c65xmaav1w7am" path="res://Asset/Weapons/Rifle.png" id="1_p1n0n"]
+[ext_resource type="AudioStream" uid="uid://c6q3yitykjy1l" path="res://assets/audio/rifle-shoot.mp3" id="3_7heow"]
+[ext_resource type="AudioStream" uid="uid://bbygbcijdmj4x" path="res://assets/audio/rifle-pickup.mp3" id="4_at1j2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwr4b"]
 radius = 44.1475
@@ -138,5 +140,14 @@ parameters/conditions/idle = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
 position = Vector2(12, -2.5)
 shape = SubResource("RectangleShape2D_3hihw")
+
+[node name="gunShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7heow")
+volume_db = -10.0
+pitch_scale = 1.59
+
+[node name="gunPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_at1j2")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
