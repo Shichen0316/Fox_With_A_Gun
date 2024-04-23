@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1yhwik1r6m2a"]
 
-[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://Characters/character_body_2d.tscn" id="1_m5c1q"]
+[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="1_m5c1q"]
 [ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
 [ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://Level/farm_collision.tscn" id="3_0mng0"]
 [ext_resource type="PackedScene" uid="uid://deivo21ags3re" path="res://Level/farm.tscn" id="3_pwqd3"]
-[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://Weapons/light_saber.tscn" id="5_55v5a"]
-[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="6_n87qv"]
-[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="7_65obb"]
-[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/psitol.tscn" id="8_wonmh"]
-[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://Weapons/shotgun.tscn" id="9_6b73h"]
-[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://Weapons/rocket_launcher.tscn" id="10_tvs0n"]
+[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://weapons/light_saber.tscn" id="5_55v5a"]
+[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://weapons/laser_gun.tscn" id="6_n87qv"]
+[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://weapons/rifle.tscn" id="7_65obb"]
+[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://weapons/psitol.tscn" id="8_wonmh"]
+[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://weapons/shotgun.tscn" id="9_6b73h"]
+[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://weapons/rocket_launcher.tscn" id="10_tvs0n"]
 
 [sub_resource type="Curve2D" id="Curve2D_sfksj"]
 _data = {
