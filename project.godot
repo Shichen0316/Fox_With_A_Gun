@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale=4.0
 
+[editor]
+
+movie_writer/movie_file="./2024.4.20.avi"
+
 [file_customization]
 
 folder_colors={
@@ -184,8 +188,6 @@ fire={
 "window_id": 0
 }]
 }
-config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
 
 [rendering]
 
