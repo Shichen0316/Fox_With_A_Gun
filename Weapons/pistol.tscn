@@ -1,12 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://sn4p7jd61luf"]
 
 [ext_resource type="Texture2D" uid="uid://bc63y7iqdi0ys" path="res://Asset/Weapons/Pistol.png" id="1_1mbai"]
-[ext_resource type="Script" path="res://Weapons/psitol.gd" id="1_beshl"]
+[ext_resource type="Script" path="res://Weapons/pistol.gd" id="1_3kl8g"]
 [ext_resource type="AudioStream" uid="uid://c6q3yitykjy1l" path="res://assets/audio/rifle-shoot.mp3" id="3_ria2q"]
 [ext_resource type="AudioStream" uid="uid://7jjtj8n24t3f" path="res://assets/audio/gun-pickup.mp3" id="4_bsu2f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1gx1x"]
 radius = 178.011
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74cv2"]
+size = Vector2(26, 22)
 
 [sub_resource type="Animation" id="Animation_f25bm"]
 length = 0.001
@@ -89,13 +92,10 @@ states/pistol_firing/node = SubResource("AnimationNodeAnimation_jyds8")
 states/pistol_firing/position = Vector2(547, 99.1563)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_raki6"), "idle", "pistol_firing", SubResource("AnimationNodeStateMachineTransition_mxp5b"), "pistol_firing", "idle", SubResource("AnimationNodeStateMachineTransition_oauvi")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_74cv2"]
-size = Vector2(26, 22)
-
-[node name="psitol" type="Area2D"]
+[node name="pistol" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_beshl")
+script = ExtResource("1_3kl8g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1gx1x")
@@ -119,6 +119,12 @@ position = Vector2(6.64354, -5.03071)
 wait_time = 0.4
 autostart = true
 
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(12, 1)
+shape = SubResource("RectangleShape2D_74cv2")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_h4k1t")
@@ -132,12 +138,6 @@ tree_root = SubResource("AnimationNodeStateMachine_g64lx")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
 parameters/conditions/idle = false
-
-[node name="playerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(12, 1)
-shape = SubResource("RectangleShape2D_74cv2")
 
 [node name="gunShot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ria2q")

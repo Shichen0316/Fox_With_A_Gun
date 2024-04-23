@@ -4,7 +4,7 @@ signal health_depleted
 
 var health = 500.0
 
-# for taking damage from bullet, ar a rate of 0.5 
+# for taking damage from bullet, at a rate of 0.5 
 func take_damage():
 	health -= 0.5
 

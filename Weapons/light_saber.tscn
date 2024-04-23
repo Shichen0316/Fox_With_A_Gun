@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p35i"]
 size = Vector2(20, 39)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1xty"]
+size = Vector2(20, 21)
+
 [sub_resource type="Animation" id="Animation_wiv6b"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,16 +58,12 @@ advance_condition = &"fire"
 "states/lightsaber_turning on/position" = Vector2(421.5, 98.125)
 transitions = ["Start", "lightsaber_turning on", SubResource("AnimationNodeStateMachineTransition_bso0v")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1xty"]
-size = Vector2(20, 21)
-
 [node name="lightSaber" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6vuvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_5p35i")
 
@@ -75,6 +74,14 @@ position = Vector2(0, -9)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("1_4dphf")
 hframes = 6
+
+[node name="playerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_a1xty")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -88,13 +95,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_8f4ya")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
-
-[node name="playerDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_a1xty")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

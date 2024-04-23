@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwr4b"]
 radius = 44.1475
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hihw"]
+size = Vector2(40, 21)
+
 [sub_resource type="Animation" id="Animation_sa286"]
 length = 0.001
 tracks/0/type = "value"
@@ -87,9 +90,6 @@ states/rifle_firing/node = SubResource("AnimationNodeAnimation_wuoc1")
 states/rifle_firing/position = Vector2(548.5, 100.051)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6ds2v"), "idle", "rifle_firing", SubResource("AnimationNodeStateMachineTransition_evb4f"), "rifle_firing", "idle", SubResource("AnimationNodeStateMachineTransition_i7kyu")]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hihw"]
-size = Vector2(40, 21)
-
 [node name="rifle" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -117,6 +117,12 @@ position = Vector2(11, -3)
 wait_time = 0.2
 autostart = true
 
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(12, -2.5)
+shape = SubResource("RectangleShape2D_3hihw")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
@@ -132,11 +138,5 @@ tree_root = SubResource("AnimationNodeStateMachine_h1npw")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
 parameters/conditions/idle = false
-
-[node name="playerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(12, -2.5)
-shape = SubResource("RectangleShape2D_3hihw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

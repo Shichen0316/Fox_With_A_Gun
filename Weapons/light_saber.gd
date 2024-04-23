@@ -7,7 +7,7 @@ var picked = false
 func _ready():
 	animation_tree.active = true
 	
-	# the weapon goes to the pre-set position when it is picked up by player 
+# the weapon goes to the pre-set position when it is picked up by player 
 func _physics_process(delta):
 	if picked == true:
 		self.position = get_node("/root/gameLevel/playerFox/lightsaberPosition").global_position
@@ -36,12 +36,12 @@ func _process(delta):
 	if picked == true: 
 		look_at(get_global_mouse_position())
 		
-	# when collision shape touches the collision shape of a bear, check if it has "take_high_damage" function, if true, trigger it 
+# when collision shape touches the collision shape of a bear, check if it has "take_high_damage" function, if true, trigger it 
 func _on_body_entered(body):
 	if body.has_method("take_high_damage"):
 		body.take_high_damage()
 		
-	# if the input "fire" is triggered, play the fire animation 
+# if the input "fire" is triggered, play the light saber turning on animation, otherwise not play 
 func update_animtaion_parameters():
 	if(Input.is_action_pressed("fire") and picked == true):
 		animation_tree["parameters/conditions/fire"] = true

@@ -8,21 +8,21 @@ var can_fire = true
 @onready var gun_shot = $gunShot
 @onready var gun_pickup = $gunPickup
 
-
-
-
 func _ready():
 	animation_tree.active = true
 
 func _physics_process(delta):
-	var enemies_in_range = get_overlapping_bodies()
-	if enemies_in_range.size() > 0:
-		var target_enemy = enemies_in_range.front()
+# for automatic aiming when enemies are in the range 
+	#var enemies_in_range = get_overlapping_bodies()
+	#if enemies_in_range.size() > 0:
+		#var target_enemy = enemies_in_range.front()
 		#look_at(target_enemy.global_position)
 	
+	# the weapon goes to the pre-set position when it is picked up by player 
 	if picked == true:
 		self.position = get_node("/root/gameLevel/playerFox/riflePosition").global_position
-		
+
+# generate new bullets at the shootingPoint, "can_fire" used to control fire rate		
 func shoot():
 	const RIFLE_BULLET = preload("res://Weapons/rifle_bullet.tscn")
 	var new_rifle_bullet = RIFLE_BULLET.instantiate()
@@ -39,13 +39,16 @@ func _input(event):
 	if Input. is_action_just_pressed("ui_pick"):
 		var bodies = $playerDetector.get_overlapping_bodies()
 		for body in bodies:
+			# only player can pick up weapon
 			if body.name == "playerFox" and get_node("/root/gameLevel/playerFox").canPick == true:
 				picked = true
 				gun_pickup.play()
+				# after picking up a weapon, canPick will be set to false  
 				get_node("/root/gameLevel/playerFox").canPick = false
 	# use input "ui_drop" to be dropped by player 			
 	if Input. is_action_just_pressed("ui_drop") and picked == true:
 		picked = false
+		# after dropping a weapon, canPick will be set to true
 		get_node("/root/gameLevel/playerFox").canPick = true
 		
 func _process(delta):
@@ -57,13 +60,12 @@ func _process(delta):
 	if Input. is_action_pressed("fire") and can_fire and picked == true:
 		shoot()
 		
-		
-		
+# for shooting based on timer, using timer to adjust fire rate 		
 #func _on_timer_timeout():
 	#if picked == true:
 		#shoot()
 
-# if the input "fire" is triggered, play the fire animation 		
+# if the input "fire" is triggered, play the fire animation, otherwise not play
 func update_animtaion_parameters():
 	if(Input.is_action_pressed("fire") and picked == true):
 		animation_tree["parameters/conditions/fire"] = true

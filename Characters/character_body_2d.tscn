@@ -1,10 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://btkd5w5tomd3q"]
+[gd_scene load_steps=22 format=3 uid="uid://btkd5w5tomd3q"]
 
 [ext_resource type="Script" path="res://Characters/character_body_2d.gd" id="1_amikr"]
 [ext_resource type="Texture2D" uid="uid://jy7n6drqf7i4" path="res://Asset/Character/Fox/Fox.png" id="2_epf5u"]
-[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/psitol.tscn" id="3_koq4t"]
-[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="4_e10lb"]
-[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="5_3bqhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajg77"]
 size = Vector2(17, 30)
@@ -194,21 +191,6 @@ parameters/walking/blend_position = -1.09343
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.99435, 0.965466)
 
-[node name="rifle" parent="." instance=ExtResource("4_e10lb")]
-visible = false
-position = Vector2(14, 2)
-rotation = 0.0499493
-
-[node name="laser gun" parent="." instance=ExtResource("5_3bqhi")]
-visible = false
-position = Vector2(-3, 6)
-rotation = 0.237005
-
-[node name="psitol" parent="." instance=ExtResource("3_koq4t")]
-visible = false
-position = Vector2(5, -5)
-rotation = -0.968482
-
 [node name="foxHurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
@@ -230,13 +212,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_h4t6u")
 value = 100.0
 show_percentage = false
 
-[node name="lightsaberPosition" type="Marker2D" parent="."]
+[node name="pistolPosition" type="Marker2D" parent="."]
 position = Vector2(10, 3)
-rotation = -1.57532
-
-[node name="lasergunPosition" type="Marker2D" parent="."]
-position = Vector2(10, 3)
-rotation = -0.0199032
 
 [node name="riflePosition" type="Marker2D" parent="."]
 position = Vector2(13, 1)
@@ -244,8 +221,13 @@ position = Vector2(13, 1)
 [node name="shotgunPosition" type="Marker2D" parent="."]
 position = Vector2(13, 1)
 
-[node name="pistolPosition" type="Marker2D" parent="."]
-position = Vector2(10, 3)
-
 [node name="rocketLauncherPosition" type="Marker2D" parent="."]
 position = Vector2(13, 1)
+
+[node name="lightsaberPosition" type="Marker2D" parent="."]
+position = Vector2(10, 3)
+rotation = -1.57532
+
+[node name="lasergunPosition" type="Marker2D" parent="."]
+position = Vector2(10, 3)
+rotation = -0.0199032

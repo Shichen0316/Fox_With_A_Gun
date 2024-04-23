@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 var health = 5.0
-# the bear goes to the position of the player  
+
+# player is the fox, the bear goes to the position of the player  
 # @onready var player = get_node("/root/gameLevel/playerFox")
-# the bear goes to the position of the farm 
+# player is the farm, the bear goes to the position of the farm 
 @onready var player = get_node("/root/gameLevel/farm")
 
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -17,21 +18,23 @@ func _process(delta):
 	update_animtaion_parameters()
 
 func _physics_process(delta):
+	# bear goes to the direction of the palyer, which is set above 
 	var direction = global_position.direction_to(player.global_position)
+	# speed of the bear: 100 
 	velocity = direction * 100.0
 	move_and_slide()
 
-# take a demage of 5 
+# take a demage of 5, works for light saber and rocket launcher 
 func take_high_damage():
 	health -= 5
-	# if health is 0, disspear 
+	# if health is 0, disappear 
 	if health == 0:
 		queue_free()
 		
-# take a damage of 1 
+# take a damage of 1, works for pistol, rifle, lasergun, shotgun 
 func take_damage():
 	health -= 1
-	# if health is 0, disspear 
+	# if health is 0, disappear 
 	if health == 0:
 		queue_free()
 		

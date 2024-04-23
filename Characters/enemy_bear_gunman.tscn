@@ -1,13 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3uoupeianwbr"]
+[gd_scene load_steps=36 format=3 uid="uid://c3uoupeianwbr"]
 
 [ext_resource type="Script" path="res://Characters/enemy_bear_gunman.gd" id="1_0qu4g"]
 [ext_resource type="Texture2D" uid="uid://tj1n541vrfsf" path="res://Asset/Character/Bear/Bear.png" id="2_0m6hi"]
-[ext_resource type="Script" path="res://Characters/Sprite2D.gd" id="3_j75x4"]
-[ext_resource type="Script" path="res://Characters/Area2D.gd" id="4_no3h4"]
 [ext_resource type="PackedScene" uid="uid://b1qkleh0fxlpf" path="res://Weapons/rifle_enemy.tscn" id="5_8v0yf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1s30"]
-size = Vector2(34, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yssde"]
 size = Vector2(24, 32)
@@ -17,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +28,7 @@ length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +45,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +62,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -84,7 +79,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +96,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +113,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Bear:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -257,23 +252,12 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_0qu4g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Bear" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture = ExtResource("2_0m6hi")
 hframes = 9
 vframes = 7
 frame = 7
-script = ExtResource("3_j75x4")
-
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("4_no3h4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-shape = SubResource("RectangleShape2D_o1s30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yssde")

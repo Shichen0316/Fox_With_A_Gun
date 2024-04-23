@@ -14,12 +14,12 @@ var canPick = true
 func _ready():
 	update_animation_parameters(starting_direction)
 	
-	# for taking damage from bullet 
+# for taking damage from bullet 
 func take_damage():
 	health -= 5.0
 	
 func _physics_process(_delta):
-	#Get input direction
+	# get input direction
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -27,19 +27,22 @@ func _physics_process(_delta):
 	
 	update_animation_parameters(input_direction)
 	
-	#Update velocity
+	# update moving velocity
 	velocity = input_direction * move_speed
 	
 	move_and_slide()
 	
 	pick_new_state()
 	
+	# if hurtbox overlapping with bears, take damage at a rate of 10 
 	const DAMAGE_RATE = 10.0
 	var overlapping_bears = %foxHurtBox.get_overlapping_bodies()
 	if overlapping_bears.size() > 0:
 		health -= DAMAGE_RATE * overlapping_bears.size() * _delta
-		
+	
+	# health bar 	
 	%ProgressBar.value = health
+	# if health is 0, triggers the fox_health_depleted signal 
 	if health <= 0.0:
 		fox_health_depleted.emit()
 			
