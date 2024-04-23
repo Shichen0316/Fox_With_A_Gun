@@ -92,7 +92,6 @@ size = Vector2(35, 16)
 script = ExtResource("1_s2y5h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_04wv1")
 
 [node name="weaponPivot" type="Marker2D" parent="."]
@@ -125,10 +124,8 @@ parameters/conditions/fire = false
 parameters/conditions/idle = false
 
 [node name="playerDetector" type="Area2D" parent="."]
-visible = false
 position = Vector2(11, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-visible = false
 position = Vector2(-5, -6)
 shape = SubResource("RectangleShape2D_ul1ix")

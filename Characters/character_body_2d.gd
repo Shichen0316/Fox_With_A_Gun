@@ -14,6 +14,7 @@ var canPick = true
 func _ready():
 	update_animation_parameters(starting_direction)
 	
+	# for taking damage from bullet 
 func take_damage():
 	health -= 5.0
 	
