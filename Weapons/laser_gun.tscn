@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=3 uid="uid://1p81a6agcsxh"]
+
+[ext_resource type="Script" path="res://Weapons/laser_gun.gd" id="1_kfiq2"]
+[ext_resource type="Texture2D" uid="uid://ce13d43kpmayu" path="res://Asset/Weapons/Laser gun.png" id="1_u8ayi"]
+[ext_resource type="Script" path="res://Weapons/LaserGun.gd" id="3_g58g5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sspag"]
+radius = 115.836
+
+[sub_resource type="Animation" id="Animation_wtamb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/LaserGun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_s7cvt"]
+resource_name = "idle"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/LaserGun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_bl8ft"]
+resource_name = "laser gun_firing_left"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/LaserGun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_hagnn"]
+resource_name = "laser gun_firing_right"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/LaserGun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77mjj"]
+_data = {
+"RESET": SubResource("Animation_wtamb"),
+"idle": SubResource("Animation_s7cvt"),
+"laser gun_firing_left": SubResource("Animation_bl8ft"),
+"laser gun_firing_right": SubResource("Animation_hagnn")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i7lqw"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ec260"]
+animation = &"laser gun_firing_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_enn5i"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_psce3"]
+advance_mode = 2
+advance_condition = &"fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8nt1"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1lq8l"]
+states/Start/position = Vector2(187, 99.8125)
+states/idle/node = SubResource("AnimationNodeAnimation_i7lqw")
+states/idle/position = Vector2(371.5, 99.9063)
+"states/laser gun_firing_right/node" = SubResource("AnimationNodeAnimation_ec260")
+"states/laser gun_firing_right/position" = Vector2(595.5, 100.203)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_enn5i"), "idle", "laser gun_firing_right", SubResource("AnimationNodeStateMachineTransition_psce3"), "laser gun_firing_right", "idle", SubResource("AnimationNodeStateMachineTransition_v8nt1")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cttp0"]
+size = Vector2(27, 21)
+
+[node name="laser gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_kfiq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.48259
+shape = SubResource("CircleShape2D_sspag")
+
+[node name="weaponPivot" type="Marker2D" parent="."]
+rotation = 0.0251603
+
+[node name="LaserGun" type="Sprite2D" parent="weaponPivot"]
+unique_name_in_owner = true
+position = Vector2(23.0536, 1.23696)
+rotation = 0.0187545
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_u8ayi")
+hframes = 2
+vframes = 4
+script = ExtResource("3_g58g5")
+
+[node name="lasergunShootingPoint" type="Marker2D" parent="weaponPivot/LaserGun"]
+unique_name_in_owner = true
+position = Vector2(8.24022, -1.72432)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_77mjj")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_77mjj")
+}
+tree_root = SubResource("AnimationNodeStateMachine_1lq8l")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fire = false
+parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(18.5, 1.5)
+shape = SubResource("RectangleShape2D_cttp0")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

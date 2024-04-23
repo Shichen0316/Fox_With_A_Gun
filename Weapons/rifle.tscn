@@ -1,0 +1,142 @@
+[gd_scene load_steps=15 format=3 uid="uid://cj5wnucfdi7ph"]
+
+[ext_resource type="Script" path="res://Weapons/rifle.gd" id="1_4necn"]
+[ext_resource type="Texture2D" uid="uid://c65xmaav1w7am" path="res://Asset/Weapons/Rifle.png" id="1_p1n0n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwr4b"]
+radius = 44.1475
+
+[sub_resource type="Animation" id="Animation_sa286"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Rifle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_a642w"]
+resource_name = "idle"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Rifle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_s3sbr"]
+resource_name = "rifle_firing"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Rifle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 5, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrtn6"]
+_data = {
+"RESET": SubResource("Animation_sa286"),
+"idle": SubResource("Animation_a642w"),
+"rifle_firing": SubResource("Animation_s3sbr")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cs07i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wuoc1"]
+animation = &"rifle_firing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ds2v"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evb4f"]
+advance_mode = 2
+advance_condition = &"fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i7kyu"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h1npw"]
+states/idle/node = SubResource("AnimationNodeAnimation_cs07i")
+states/idle/position = Vector2(377.5, 99.9258)
+states/rifle_firing/node = SubResource("AnimationNodeAnimation_wuoc1")
+states/rifle_firing/position = Vector2(548.5, 100.051)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6ds2v"), "idle", "rifle_firing", SubResource("AnimationNodeStateMachineTransition_evb4f"), "rifle_firing", "idle", SubResource("AnimationNodeStateMachineTransition_i7kyu")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hihw"]
+size = Vector2(40, 21)
+
+[node name="rifle" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4necn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.37677
+shape = SubResource("CircleShape2D_jwr4b")
+
+[node name="weaponPivot" type="Marker2D" parent="."]
+rotation = -0.195949
+
+[node name="Rifle" type="Sprite2D" parent="weaponPivot"]
+position = Vector2(15.8876, 2.14125)
+rotation = 0.198758
+texture = ExtResource("1_p1n0n")
+hframes = 5
+vframes = 4
+
+[node name="rifleShootingPoint" type="Marker2D" parent="weaponPivot/Rifle"]
+unique_name_in_owner = true
+position = Vector2(11, -3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_qrtn6")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_qrtn6")
+}
+tree_root = SubResource("AnimationNodeStateMachine_h1npw")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fire = false
+parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(12, -2.5)
+shape = SubResource("RectangleShape2D_3hihw")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
