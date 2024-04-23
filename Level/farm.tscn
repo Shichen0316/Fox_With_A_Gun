@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://deivo21ags3re"]
+
+[ext_resource type="Script" path="res://farm.gd" id="1_bmrku"]
+[ext_resource type="Texture2D" uid="uid://cudx28jumdgy3" path="res://Asset/Map/Farm/house.png" id="2_xdjlj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62y2i"]
+size = Vector2(122, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxdwi"]
+size = Vector2(130, 142)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0buwj"]
+bg_color = Color(0.772549, 0.529412, 0.47451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a2vm"]
+bg_color = Color(0.894118, 0.254902, 0.133333, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="farm" type="Area2D"]
+visible = false
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_bmrku")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(1.5, 2.99999)
+scale = Vector2(0.576172, 0.566406)
+texture = ExtResource("2_xdjlj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -10.5)
+shape = SubResource("RectangleShape2D_62y2i")
+
+[node name="hurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_wxdwi")
+debug_color = Color(0.976471, 0.14902, 0, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -57.0
+offset_top = -94.0
+offset_right = 58.0
+offset_bottom = -79.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0buwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7a2vm")
+value = 100.0
+show_percentage = false

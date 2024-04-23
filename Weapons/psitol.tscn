@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://sn4p7jd61luf"]
+
+[ext_resource type="Texture2D" uid="uid://bc63y7iqdi0ys" path="res://Asset/Weapons/Pistol.png" id="1_1mbai"]
+[ext_resource type="Script" path="res://Weapons/psitol.gd" id="1_beshl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gx1x"]
+radius = 178.011
+
+[sub_resource type="Animation" id="Animation_f25bm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Pistol:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xtnrj"]
+resource_name = "idle"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Pistol:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_x2ol3"]
+resource_name = "pistol_firing"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Pistol:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 8, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4k1t"]
+_data = {
+"RESET": SubResource("Animation_f25bm"),
+"idle": SubResource("Animation_xtnrj"),
+"pistol_firing": SubResource("Animation_x2ol3")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_13oyt"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyds8"]
+animation = &"pistol_firing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_raki6"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mxp5b"]
+advance_mode = 2
+advance_condition = &"fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oauvi"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g64lx"]
+states/idle/node = SubResource("AnimationNodeAnimation_13oyt")
+states/idle/position = Vector2(373, 98.3125)
+states/pistol_firing/node = SubResource("AnimationNodeAnimation_jyds8")
+states/pistol_firing/position = Vector2(547, 99.1563)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_raki6"), "idle", "pistol_firing", SubResource("AnimationNodeStateMachineTransition_mxp5b"), "pistol_firing", "idle", SubResource("AnimationNodeStateMachineTransition_oauvi")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74cv2"]
+size = Vector2(26, 22)
+
+[node name="psitol" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_beshl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1gx1x")
+
+[node name="weaponPivot" type="Marker2D" parent="."]
+rotation = -0.0200816
+
+[node name="Pistol" type="Sprite2D" parent="weaponPivot"]
+position = Vector2(14.9568, 2.3008)
+rotation = 0.0246968
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_1mbai")
+hframes = 7
+vframes = 4
+
+[node name="shootingPoint" type="Marker2D" parent="weaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(6.64354, -5.03071)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4k1t")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4k1t")
+}
+tree_root = SubResource("AnimationNodeStateMachine_g64lx")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fire = false
+parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(12, 1)
+shape = SubResource("RectangleShape2D_74cv2")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

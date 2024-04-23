@@ -1,0 +1,157 @@
+[gd_scene load_steps=15 format=3 uid="uid://r40jijbrt0s6"]
+
+[ext_resource type="Script" path="res://shotgun.gd" id="1_qefdk"]
+[ext_resource type="Texture2D" uid="uid://cbsj5s5vq8e32" path="res://Asset/Weapons/shotgun.png" id="2_41y67"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_butba"]
+radius = 94.3398
+
+[sub_resource type="Animation" id="Animation_3jrkf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Shotgun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_54qd7"]
+resource_name = "shotgun_firing"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Shotgun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 6, 9, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ia17i"]
+resource_name = "shotgun_idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weaponPivot/Shotgun:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5kwv"]
+_data = {
+"RESET": SubResource("Animation_3jrkf"),
+"shotgun_firing": SubResource("Animation_54qd7"),
+"shotgun_idle": SubResource("Animation_ia17i")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gylxs"]
+animation = &"shotgun_firing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wccl2"]
+animation = &"shotgun_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tob7s"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e18om"]
+advance_mode = 2
+advance_condition = &"fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lwms2"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y5t7j"]
+states/Start/position = Vector2(194, 105.125)
+states/shotgun_firing/node = SubResource("AnimationNodeAnimation_gylxs")
+states/shotgun_firing/position = Vector2(598, 102.141)
+states/shotgun_idle/node = SubResource("AnimationNodeAnimation_wccl2")
+states/shotgun_idle/position = Vector2(394.5, 102.563)
+transitions = ["Start", "shotgun_idle", SubResource("AnimationNodeStateMachineTransition_tob7s"), "shotgun_idle", "shotgun_firing", SubResource("AnimationNodeStateMachineTransition_e18om"), "shotgun_firing", "shotgun_idle", SubResource("AnimationNodeStateMachineTransition_lwms2")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqyne"]
+size = Vector2(42, 21)
+
+[node name="shotgun" type="Area2D"]
+script = ExtResource("1_qefdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_butba")
+
+[node name="weaponPivot" type="Marker2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="Shotgun" type="Sprite2D" parent="weaponPivot"]
+position = Vector2(20, 0)
+texture = ExtResource("2_41y67")
+hframes = 5
+vframes = 2
+
+[node name="shotgunShootingPoint1" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -3)
+rotation = -0.714027
+
+[node name="shotgunShootingPoint2" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -3)
+rotation = -0.300164
+
+[node name="shotgunShootingPoint3" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -3)
+rotation = 0.0253627
+
+[node name="shotgunShootingPoint4" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -2)
+rotation = 0.696952
+
+[node name="shotgunShootingPoint5" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -2)
+rotation = 0.323652
+
+[node name="shotgunShootingPoint6" type="Marker2D" parent="weaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(15, -2)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q5kwv")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q5kwv")
+}
+tree_root = SubResource("AnimationNodeStateMachine_y5t7j")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fire = false
+parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_qqyne")

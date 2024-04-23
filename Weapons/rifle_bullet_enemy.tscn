@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccwlowsxyqq6d"]
+
+[ext_resource type="Script" path="res://Weapons/rifle_bullet_enemy.gd" id="1_soqgv"]
+[ext_resource type="Texture2D" uid="uid://c6qs244g104bq" path="res://Asset/Weapons/Rifle bullet.png" id="2_y2wth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a25f"]
+size = Vector2(8.49988, 2.50518)
+
+[node name="rifle_bullet" type="Area2D"]
+top_level = true
+rotation = -0.00521452
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_soqgv")
+
+[node name="RifleBullet" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_y2wth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.74999, 0.252604)
+shape = SubResource("RectangleShape2D_5a25f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

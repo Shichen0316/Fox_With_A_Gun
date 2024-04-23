@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dby5oxtpbffbr"]
+
+[ext_resource type="Script" path="res://Weapons/rocket_launcher_bullet.gd" id="1_bgtgs"]
+[ext_resource type="Texture2D" uid="uid://6r44xq24cwy8" path="res://Asset/Weapons/rocketLauncher_bullet.png" id="2_eo4ln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcnq7"]
+size = Vector2(22, 23)
+
+[node name="rocketLauncher_bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bgtgs")
+
+[node name="RocketLauncherBullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_eo4ln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -0.5)
+shape = SubResource("RectangleShape2D_xcnq7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
