@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnu7rm7au1n7u"]
+[gd_scene load_steps=17 format=3 uid="uid://dnu7rm7au1n7u"]
 
 [ext_resource type="Texture2D" uid="uid://8v5i85fh0mdd" path="res://Asset/Weapons/rocket launcher.png" id="1_r1mlu"]
 [ext_resource type="Script" path="res://Weapons/rocket_launcher.gd" id="1_s2y5h"]
+[ext_resource type="AudioStream" uid="uid://caea3bo8tm3nq" path="res://assets/audio/rocket_launcher_shot.mp3" id="3_4my4k"]
+[ext_resource type="AudioStream" uid="uid://bbygbcijdmj4x" path="res://assets/audio/rifle-pickup.mp3" id="4_ab3km"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04wv1"]
 radius = 220.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul1ix"]
-size = Vector2(35, 16)
 
 [sub_resource type="Animation" id="Animation_05x00"]
 length = 0.001
@@ -88,10 +87,14 @@ states/rocketLauncher_idle/node = SubResource("AnimationNodeAnimation_kcva4")
 states/rocketLauncher_idle/position = Vector2(408, 100.313)
 transitions = ["Start", "rocketLauncher_idle", SubResource("AnimationNodeStateMachineTransition_ib5w8"), "rocketLauncher_idle", "rocketLauncher_firing", SubResource("AnimationNodeStateMachineTransition_kapu2"), "rocketLauncher_firing", "rocketLauncher_idle", SubResource("AnimationNodeStateMachineTransition_yxvwv")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul1ix"]
+size = Vector2(35, 16)
+
 [node name="rocketLauncher" type="Area2D"]
 script = ExtResource("1_s2y5h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_04wv1")
 
 [node name="weaponPivot" type="Marker2D" parent="."]
@@ -109,13 +112,6 @@ position = Vector2(21, -2)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="playerDetector" type="Area2D" parent="."]
-position = Vector2(11, 4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(-5, -6)
-shape = SubResource("RectangleShape2D_ul1ix")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_u4un1")
@@ -129,3 +125,22 @@ tree_root = SubResource("AnimationNodeStateMachine_f85oh")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
 parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+visible = false
+position = Vector2(11, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+visible = false
+position = Vector2(-5, -6)
+shape = SubResource("RectangleShape2D_ul1ix")
+
+[node name="rocketShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4my4k")
+volume_db = -12.0
+pitch_scale = 1.8
+
+[node name="rocketPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ab3km")
+volume_db = -12.0
+pitch_scale = 1.4

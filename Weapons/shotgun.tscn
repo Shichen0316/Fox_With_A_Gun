@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://r40jijbrt0s6"]
+[gd_scene load_steps=17 format=3 uid="uid://r40jijbrt0s6"]
 
 [ext_resource type="Script" path="res://shotgun.gd" id="1_qefdk"]
 [ext_resource type="Texture2D" uid="uid://cbsj5s5vq8e32" path="res://Asset/Weapons/shotgun.png" id="2_41y67"]
+[ext_resource type="AudioStream" uid="uid://d34eqgha78t35" path="res://assets/audio/shotgun_shot.mp3" id="3_3uljn"]
+[ext_resource type="AudioStream" uid="uid://bbygbcijdmj4x" path="res://assets/audio/rifle-pickup.mp3" id="4_jgyvi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_butba"]
 radius = 94.3398
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqyne"]
-size = Vector2(42, 21)
 
 [sub_resource type="Animation" id="Animation_3jrkf"]
 length = 0.001
@@ -90,6 +89,9 @@ states/shotgun_idle/node = SubResource("AnimationNodeAnimation_wccl2")
 states/shotgun_idle/position = Vector2(394.5, 102.563)
 transitions = ["Start", "shotgun_idle", SubResource("AnimationNodeStateMachineTransition_tob7s"), "shotgun_idle", "shotgun_firing", SubResource("AnimationNodeStateMachineTransition_e18om"), "shotgun_firing", "shotgun_idle", SubResource("AnimationNodeStateMachineTransition_lwms2")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqyne"]
+size = Vector2(42, 21)
+
 [node name="shotgun" type="Area2D"]
 script = ExtResource("1_qefdk")
 
@@ -136,12 +138,6 @@ position = Vector2(15, -2)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="playerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(-2, -0.5)
-shape = SubResource("RectangleShape2D_qqyne")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_q5kwv")
@@ -155,3 +151,19 @@ tree_root = SubResource("AnimationNodeStateMachine_y5t7j")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
 parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_qqyne")
+
+[node name="shotgunShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3uljn")
+volume_db = -12.0
+pitch_scale = 1.68
+
+[node name="shotgunPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jgyvi")
+volume_db = -12.0
+pitch_scale = 1.6

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://deivo21ags3re"]
+[gd_scene load_steps=8 format=3 uid="uid://deivo21ags3re"]
 
 [ext_resource type="Script" path="res://farm.gd" id="1_bmrku"]
 [ext_resource type="Texture2D" uid="uid://cudx28jumdgy3" path="res://Asset/Map/Farm/house.png" id="2_xdjlj"]
+[ext_resource type="AudioStream" uid="uid://bfgbu1sy5l1wq" path="res://assets/audio/music-background.mp3" id="3_k88ko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62y2i"]
 size = Vector2(122, 117)
@@ -58,3 +59,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_0buwj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7a2vm")
 value = 100.0
 show_percentage = false
+
+[node name="backgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k88ko")
+volume_db = -18.0
+autoplay = true
+max_distance = 500.0
+attenuation = 0.7

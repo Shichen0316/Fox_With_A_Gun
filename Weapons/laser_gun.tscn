@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://1p81a6agcsxh"]
+[gd_scene load_steps=19 format=3 uid="uid://1p81a6agcsxh"]
 
 [ext_resource type="Script" path="res://Weapons/laser_gun.gd" id="1_kfiq2"]
 [ext_resource type="Texture2D" uid="uid://ce13d43kpmayu" path="res://Asset/Weapons/Laser gun.png" id="1_u8ayi"]
+[ext_resource type="Script" path="res://Weapons/LaserGun.gd" id="3_g58g5"]
+[ext_resource type="AudioStream" uid="uid://bxcj76c3638cm" path="res://assets/audio/lasergun-shot.mp3" id="4_ssili"]
+[ext_resource type="AudioStream" uid="uid://bbygbcijdmj4x" path="res://assets/audio/rifle-pickup.mp3" id="5_1o567"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sspag"]
 radius = 115.836
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cttp0"]
-size = Vector2(27, 21)
 
 [sub_resource type="Animation" id="Animation_wtamb"]
 length = 0.001
@@ -107,6 +107,9 @@ states/idle/position = Vector2(371.5, 99.9063)
 "states/laser gun_firing_right/position" = Vector2(595.5, 100.203)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_enn5i"), "idle", "laser gun_firing_right", SubResource("AnimationNodeStateMachineTransition_psce3"), "laser gun_firing_right", "idle", SubResource("AnimationNodeStateMachineTransition_v8nt1")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cttp0"]
+size = Vector2(27, 21)
+
 [node name="laser gun" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -127,6 +130,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_u8ayi")
 hframes = 2
 vframes = 4
+script = ExtResource("3_g58g5")
 
 [node name="lasergunShootingPoint" type="Marker2D" parent="weaponPivot/LaserGun"]
 unique_name_in_owner = true
@@ -135,12 +139,6 @@ position = Vector2(8.24022, -1.72432)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.001
 autostart = true
-
-[node name="playerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(18.5, 1.5)
-shape = SubResource("RectangleShape2D_cttp0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -157,5 +155,21 @@ tree_root = SubResource("AnimationNodeStateMachine_1lq8l")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/fire = false
 parameters/conditions/idle = false
+
+[node name="playerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetector"]
+position = Vector2(18.5, 1.5)
+shape = SubResource("RectangleShape2D_cttp0")
+
+[node name="laserShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ssili")
+volume_db = -12.0
+pitch_scale = 2.1
+
+[node name="laserPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1o567")
+volume_db = -12.0
+pitch_scale = 1.84
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
