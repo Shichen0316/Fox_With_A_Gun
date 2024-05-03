@@ -4,20 +4,12 @@ extends Node
 var languages = {
 	"EN": {
 		"changeLanguage":"Change language",
-		"nowHungarian":"Now Hungarian",
-		"nowEnglish":"Now English",
-		"hello": "Hello",
-		"goodbye": "Goodbye",
-		"thisisatest": "This is a test"
+		"youAreDead":"You are dead",
 		# ... more translations
 	},
 		"HU": {
 		"changeLanguage":"Másik nyelv",
-		"nowHungarian":"Most magyarul",
-		"nowEnglish":"Most angolul",
-		"hello": "Szia",
-		"thisisatest": "Tesztelve lesz"
-		# translations after English is completed
+		"youAreDead":"A játéknak vége",
 	},
 }
 
@@ -39,4 +31,9 @@ func set_language(language_code: String) -> void:
 func update_translatable_nodes() -> void:
 	for node in get_tree().get_nodes_in_group("translatable"):
 		var key = node.name  # Use node's name as the key
-		node.text = get_text(key)
+		if node.has_method("set_text"):  # Check if node has set_text method
+			node.set_text(get_text(key))
+		elif node.has_method("set_caption"):  # For Controls that use captions
+			node.set_caption(get_text(key))
+		else: 
+			node.text = get_text(key)
