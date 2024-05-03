@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b1yhwik1r6m2a"]
+[gd_scene load_steps=35 format=3 uid="uid://b1yhwik1r6m2a"]
 
 [ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="1_m5c1q"]
 [ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
@@ -11650,19 +11650,15 @@ texture = ExtResource("4_136fd")
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.25, 8, 2.0625, 4.8125, 4.6875, 2.5, 8, 2.5, 8, 8)
 1:4/0 = 0
 1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:4/0/physics_layer_0/angular_velocity = 0.0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.0625, -4.0625, 2, -2.375, 4, -1.3125, 8, -8, 8)
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.4375, -8, 8, -8, 8, -1.75, 4.125, -2.25, 2.1875, -4.125)
 1:5/0 = 0
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.625, -8, -2, -5.5, -2.9375, -4, -3.9375, -1.8125, -8, -1.875)
 0:6/0 = 0
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
@@ -14777,8 +14773,15 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxwol"]
+size = Vector2(2594, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwoom"]
+size = Vector2(4, 1994)
+
 [node name="gameLevel" type="Node2D"]
 position = Vector2(-3, 0)
+scale = Vector2(1.12, 1)
 script = ExtResource("1_rfna0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -14786,11 +14789,25 @@ layer = -1
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1065.0
-offset_top = -750.0
-offset_right = 1069.0
-offset_bottom = 787.0
+offset_left = -1452.0
+offset_top = -975.0
+offset_right = 1447.0
+offset_bottom = 1016.0
 color = Color(0.65098, 1, 0.545098, 1)
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/ColorRect"]
+size = Vector2i(2920, 1990)
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/ColorRect/SubViewport"]
+visible = false
+enabled = false
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+limit_left = -1456
+limit_top = -977
+limit_right = 1450
+limit_bottom = 1019
+editor_draw_screen = false
 
 [node name="TileMap2" type="TileMap" parent="."]
 scale = Vector2(1.21005, 1.29927)
@@ -14875,7 +14892,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.541176)
 
-[node name="Label" type="Label" parent="youAreDead/ColorRect"]
+[node name="Label" type="Label" parent="youAreDead/ColorRect" groups=["translatable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -14892,28 +14909,63 @@ theme_override_font_sizes/font_size = 30
 text = "You are Dead."
 
 [node name="pistol" parent="." instance=ExtResource("8_wonmh")]
-visible = false
 position = Vector2(-8, 80)
 
 [node name="rifle" parent="." instance=ExtResource("7_65obb")]
-visible = false
-position = Vector2(-9, 141)
+position = Vector2(260.714, -353)
 
 [node name="shotgun" parent="." instance=ExtResource("9_6b73h")]
-visible = false
-position = Vector2(-75, 137)
+position = Vector2(-373.214, 81)
 
 [node name="rocketLauncher" parent="." instance=ExtResource("10_tvs0n")]
-visible = false
-position = Vector2(65, 137)
+position = Vector2(60.7142, 400)
 
 [node name="lightSaber" parent="." instance=ExtResource("5_55v5a")]
-visible = false
-position = Vector2(-136, 133)
+position = Vector2(428.571, 216)
 
 [node name="laser gun" parent="." instance=ExtResource("6_n87qv")]
-visible = false
-position = Vector2(109, 133)
+position = Vector2(-203.571, -269)
+
+[node name="borders" type="Node2D" parent="."]
+
+[node name="TopBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(3, 0)
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/TopBorder"]
+position = Vector2(-3, -975)
+shape = SubResource("RectangleShape2D_rxwol")
+
+[node name="BottomBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(3, 0)
+collision_mask = 15
+constant_linear_velocity = Vector2(2593.85, 2)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="borders/BottomBorder"]
+position = Vector2(-3, 1017)
+shape = SubResource("RectangleShape2D_rxwol")
+
+[node name="LeftBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(3, 0)
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/LeftBorder"]
+position = Vector2(-1298.54, 22)
+shape = SubResource("RectangleShape2D_hwoom")
+
+[node name="RightBorder" type="StaticBody2D" parent="borders"]
+position = Vector2(3, 0)
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/RightBorder"]
+position = Vector2(1291.64, 20)
+shape = SubResource("RectangleShape2D_hwoom")
+
+[node name="Language_switcher" type="Button" parent="." groups=["translatable"]]
+offset_left = -192.0
+offset_top = -93.0
+offset_right = -139.0
+offset_bottom = -62.0
 
 [connection signal="health_depleted" from="farm" to="." method="_on_static_body_2d_health_depleted"]
 [connection signal="fox_health_depleted" from="playerFox" to="." method="_on_player_fox_fox_health_depleted"]

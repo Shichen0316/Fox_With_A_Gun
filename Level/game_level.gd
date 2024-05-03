@@ -5,6 +5,9 @@ func _ready():
 	spawn_bear()
 	spawn_bear()
 	
+	# directly use the LanguageManager autoload singleton to set the button's text
+	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
+	
 # spwan normal bears on Path2D 
 func spawn_bear():
 	var new_bear = preload("res://Characters/enemy_bear.tscn").instantiate()
@@ -52,3 +55,11 @@ func _on_player_fox_fox_health_depleted():
 func _on_static_body_2d_health_depleted():
 	%gameOver.visible = true
 	get_tree().paused = true
+
+#language manager
+func _on_button_pressed():
+	if LanguageManager.current_language == "EN":
+		LanguageManager.set_language("HU")
+	else:
+		LanguageManager.set_language("EN")
+	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
