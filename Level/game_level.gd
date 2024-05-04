@@ -3,7 +3,9 @@ extends Node2D
 var weapon_scenes = {
 	"rifle": preload("res://weapons/rifle.tscn"),
 	"laser_gun": preload("res://weapons/laser_gun.tscn"),
-	"light_saber": preload("res://weapons/light_saber.tscn")
+	"light_saber": preload("res://weapons/light_saber.tscn"),
+	"shotgun": preload("res://weapons/shotgun.tscn"),
+	"rocket_launcher": preload("res://weapons/rocket_launcher.tscn"),
 }
 var weapons = {}  # Changed to dictionary for tracking individual weapons
 
@@ -18,7 +20,7 @@ func _ready():
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():
 		if not weapons.has(weapon_type) or weapons[weapon_type] == null:
-			for idx in range(200):
+			for idx in range(12):
 				spawn_weapon(weapon_type,idx)
 
 func spawn_weapon(weapon_type, index):
@@ -36,24 +38,10 @@ func spawn_weapon(weapon_type, index):
 	print("Viewport size", subviewport.size.x)
 	weapon.position = Vector2(x_pos, y_pos)
 	add_child(weapon)
-	weapons[weapon_type+"___"+str(index)] = {"instance": weapon, "timeout": 10.0}
-
-#func set_weapon_timeout(weapon_type):
-	## Create a timer and wait for it to timeout
-	#var timer = get_tree().create_timer(10.0)
-	#await timer.timeout
-	#print("timeout finished")
-	## Check if the weapon still exists before trying to queue_free it
-	#if weapons.has(weapon_type) and weapons[weapon_type] != null:
-	##if weapon_info["instance"] and not weapon_info["instance"].is_queued_for_deletion():
-		#weapons[weapon_type].queue_free()
-		#weapons[weapon_type] = null
-	#print("spawning weapon")
-	#spawn_weapon(weapon_type)
+	weapons[weapon_type+"___"+str(index)] = {"instance": weapon, "timeout": 15.0}
 
 func _process(delta):
 	var to_remove = []
-	print("keys",weapons.values())
 	for weapon_type in weapons.keys():
 		if weapons[weapon_type] != null:
 			var weapon_info = weapons[weapon_type]
@@ -63,7 +51,7 @@ func _process(delta):
 				to_remove.append(weapon_type)
 	for weapon_type in to_remove:
 		weapons.erase(weapon_type)
-		
+		get_node("/root/gameLevel/playerFox").canPick = true
 		var split = weapon_type.split("___")
 		var type = split[0]
 		var idx = split[1]
