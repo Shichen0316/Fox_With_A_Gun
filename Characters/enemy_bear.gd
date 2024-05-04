@@ -13,6 +13,12 @@ var direction : Vector2 = Vector2.ZERO
 
 func _ready():
 	animation_tree.active = true
+	#debugging an error
+	var farm_node = get_node_or_null("/root/gameLevel/farm")
+	if farm_node:
+		print("Farm node found")
+	else:
+		print("Farm node not found")
 	
 func _process(delta):
 	update_animtaion_parameters()
