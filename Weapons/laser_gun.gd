@@ -19,7 +19,7 @@ func _physics_process(delta):
 		#look_at(target_enemy.global_position)
 	
 	if picked == true:
-		self.position = get_node("/root/gameLevel/playerFox/lasergunPosition").global_position
+		self.global_position = get_node("/root/gameLevel/playerFox/lasergunPosition").global_position
 		
 func shoot():
 	const LASERGUN_BULLET = preload("res://Weapons/lasergun_bullet.tscn")

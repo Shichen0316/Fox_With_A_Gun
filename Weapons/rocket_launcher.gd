@@ -19,7 +19,7 @@ func _physics_process(delta):
 		#look_at(target_enemy.global_position)
 	
 	if picked == true:
-		self.position = get_node("/root/gameLevel/playerFox/rocketLauncherPosition").global_position
+		self.global_position = get_node("/root/gameLevel/playerFox/rocketLauncherPosition").global_position
 		
 func shoot():
 	const ROCKET_BULLET = preload("res://Weapons/rocket_launcher_bullet.tscn")

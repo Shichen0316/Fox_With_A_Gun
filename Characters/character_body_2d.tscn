@@ -218,21 +218,19 @@ value = 100.0
 show_percentage = false
 
 [node name="pistolPosition" type="Marker2D" parent="."]
-position = Vector2(10, 3)
+position = Vector2(3, 1)
 
 [node name="riflePosition" type="Marker2D" parent="."]
-position = Vector2(13, 1)
+position = Vector2(3, 1)
 
 [node name="shotgunPosition" type="Marker2D" parent="."]
-position = Vector2(13, 1)
+position = Vector2(3, 1)
 
 [node name="rocketLauncherPosition" type="Marker2D" parent="."]
-position = Vector2(13, 1)
+position = Vector2(3, 1)
 
 [node name="lightsaberPosition" type="Marker2D" parent="."]
-position = Vector2(10, 3)
-rotation = -1.57532
+position = Vector2(3, 1)
 
 [node name="lasergunPosition" type="Marker2D" parent="."]
-position = Vector2(10, 3)
-rotation = -0.0199032
+position = Vector2(3, 1)

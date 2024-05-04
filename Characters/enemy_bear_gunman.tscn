@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Characters/enemy_bear_gunman.gd" id="1_0qu4g"]
 [ext_resource type="Texture2D" uid="uid://tj1n541vrfsf" path="res://Asset/Character/Bear/Bear.png" id="2_0m6hi"]
-[ext_resource type="PackedScene" uid="uid://b1qkleh0fxlpf" path="res://Weapons/rifle_enemy.tscn" id="5_8v0yf"]
+[ext_resource type="PackedScene" uid="uid://b1qkleh0fxlpf" path="res://weapons/rifle_enemy.tscn" id="5_8v0yf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yssde"]
 size = Vector2(24, 32)

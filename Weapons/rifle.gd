@@ -20,7 +20,7 @@ func _physics_process(delta):
 	
 	# the weapon goes to the pre-set position when it is picked up by player 
 	if picked == true:
-		self.position = get_node("/root/gameLevel/playerFox/riflePosition").global_position
+		self.global_position = get_node("/root/gameLevel/playerFox/riflePosition").global_position
 
 # generate new bullets at the shootingPoint, "can_fire" used to control fire rate		
 func shoot():
