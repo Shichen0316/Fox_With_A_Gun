@@ -18,34 +18,42 @@ func _ready():
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():
 		if not weapons.has(weapon_type) or weapons[weapon_type] == null:
-			spawn_weapon(weapon_type)
+			for idx in range(200):
+				spawn_weapon(weapon_type,idx)
 
-func spawn_weapon(weapon_type):
+func spawn_weapon(weapon_type, index):
 	var weapon_scene = weapon_scenes[weapon_type]
 	if weapon_scene == null:
 		print("Weapon scene not loaded for: ", weapon_type)
 		return
 
 	var weapon = weapon_scene.instantiate()
-	var x_pos = randf() * get_viewport_rect().size.x
-	var y_pos = randf() * get_viewport_rect().size.y
+	var subviewport = get_node("CanvasLayer/ColorRect/SubViewport")
+	var x_pos = randf() * subviewport.size.x - subviewport.size.x/2
+	var y_pos = randf() * subviewport.size.y - subviewport.size.y/2
+	#var x_pos = randf() * get_viewport_rect().size.x
+	#var y_pos = randf() * get_viewport_rect().size.y
+	print("Viewport size", subviewport.size.x)
 	weapon.position = Vector2(x_pos, y_pos)
 	add_child(weapon)
-	weapons[weapon_type] = {"instance": weapon, "timeout": 15.0}
+	weapons[weapon_type+"___"+str(index)] = {"instance": weapon, "timeout": 10.0}
 
-func set_weapon_timeout(weapon_type):
-	# Create a timer and wait for it to timeout
-	var timer = get_tree().create_timer(10.0)
-	await timer.timeout
-	# Check if the weapon still exists before trying to queue_free it
-	if weapons.has(weapon_type) and weapons[weapon_type] != null:
-	#if weapon_info["instance"] and not weapon_info["instance"].is_queued_for_deletion():
-		weapons[weapon_type].queue_free()
-		weapons[weapon_type] = null
-	spawn_weapon(weapon_type)
+#func set_weapon_timeout(weapon_type):
+	## Create a timer and wait for it to timeout
+	#var timer = get_tree().create_timer(10.0)
+	#await timer.timeout
+	#print("timeout finished")
+	## Check if the weapon still exists before trying to queue_free it
+	#if weapons.has(weapon_type) and weapons[weapon_type] != null:
+	##if weapon_info["instance"] and not weapon_info["instance"].is_queued_for_deletion():
+		#weapons[weapon_type].queue_free()
+		#weapons[weapon_type] = null
+	#print("spawning weapon")
+	#spawn_weapon(weapon_type)
 
 func _process(delta):
 	var to_remove = []
+	print("keys",weapons.values())
 	for weapon_type in weapons.keys():
 		if weapons[weapon_type] != null:
 			var weapon_info = weapons[weapon_type]
@@ -55,7 +63,12 @@ func _process(delta):
 				to_remove.append(weapon_type)
 	for weapon_type in to_remove:
 		weapons.erase(weapon_type)
-		spawn_weapon(weapon_type)  # Re-spawn the weapon
+		
+		var split = weapon_type.split("___")
+		var type = split[0]
+		var idx = split[1]
+		
+		spawn_weapon(type,idx)  # Re-spawn the weapon
 
 # spwan normal bears on Path2D 
 func spawn_bear():

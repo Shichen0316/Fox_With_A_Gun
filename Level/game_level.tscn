@@ -14792,7 +14792,8 @@ follow_viewport_enabled = true
 offset_left = -1452.0
 offset_top = -975.0
 offset_right = 1447.0
-offset_bottom = 312.0
+offset_bottom = 1018.0
+scale = Vector2(0.996819, 0.99753)
 color = Color(0.65098, 1, 0.545098, 1)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/ColorRect"]
