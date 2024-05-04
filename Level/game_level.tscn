@@ -14908,6 +14908,7 @@ theme_override_font_sizes/font_size = 30
 text = "You are Dead."
 
 [node name="pistol" parent="." instance=ExtResource("8_wonmh")]
+visible = false
 position = Vector2(-10.7143, 69)
 
 [node name="rifle" parent="." instance=ExtResource("7_65obb")]

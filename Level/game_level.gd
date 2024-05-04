@@ -31,7 +31,7 @@ func spawn_weapon(weapon_type):
 	var y_pos = randf() * get_viewport_rect().size.y
 	weapon.position = Vector2(x_pos, y_pos)
 	add_child(weapon)
-	weapons[weapon_type] = {"instance": weapon, "timeout": 12.0}  # Set timeout to 30 seconds
+	weapons[weapon_type] = {"instance": weapon, "timeout": 15.0}
 
 func set_weapon_timeout(weapon_type):
 	# Create a timer and wait for it to timeout
@@ -39,6 +39,7 @@ func set_weapon_timeout(weapon_type):
 	await timer.timeout
 	# Check if the weapon still exists before trying to queue_free it
 	if weapons.has(weapon_type) and weapons[weapon_type] != null:
+	#if weapon_info["instance"] and not weapon_info["instance"].is_queued_for_deletion():
 		weapons[weapon_type].queue_free()
 		weapons[weapon_type] = null
 	spawn_weapon(weapon_type)
@@ -46,10 +47,11 @@ func set_weapon_timeout(weapon_type):
 func _process(delta):
 	var to_remove = []
 	for weapon_type in weapons.keys():
-		if weapons[weapon_type]["instance"] != null:
-			weapons[weapon_type]["timeout"] -= delta
-			if weapons[weapon_type]["timeout"] <= 0:
-				weapons[weapon_type]["instance"].queue_free()
+		if weapons[weapon_type] != null:
+			var weapon_info = weapons[weapon_type]
+			weapon_info.timeout -= delta
+			if weapon_info.timeout <= 0:
+				weapon_info["instance"].queue_free()
 				to_remove.append(weapon_type)
 	for weapon_type in to_remove:
 		weapons.erase(weapon_type)
