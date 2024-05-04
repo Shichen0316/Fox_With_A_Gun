@@ -17,21 +17,51 @@ func _ready():
 
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():
-		if not weapons.has(weapon_type) or weapons[weapon_type] == null:
+		print("Checking for weapon type: ", weapon_type)
+		while (not weapons.has(weapon_type) or weapons[weapon_type].size() < 2):
+			print("Spawning weapon of type: ", weapon_type)
 			spawn_weapon(weapon_type)
 
 func spawn_weapon(weapon_type):
+	print("Attempting to spawn weapon: ", weapon_type)
 	var weapon_scene = weapon_scenes[weapon_type]
 	if weapon_scene == null:
 		print("Weapon scene not loaded for: ", weapon_type)
 		return
 
 	var weapon = weapon_scene.instantiate()
-	var x_pos = randf() * get_viewport_rect().size.x
-	var y_pos = randf() * get_viewport_rect().size.y
-	weapon.position = Vector2(x_pos, y_pos)
+	var position = find_valid_position(weapon_type)
+	if position == Vector2():
+		print("Failed to find a valid position for: ", weapon_type)
+		return  # Avoid spawning if no valid position found
+
+	weapon.position = position
 	add_child(weapon)
-	weapons[weapon_type] = {"instance": weapon, "timeout": 15.0}
+
+	if not weapons.has(weapon_type):
+		weapons[weapon_type] = []
+	weapons[weapon_type].append({"instance": weapon, "timeout": 15.0})
+	print("Weapon spawned: ", weapon_type, " at ", position)
+
+func find_valid_position(weapon_type):
+	var viewport_size = get_viewport_rect().size
+	var min_distance = viewport_size.x / 3
+	var position = Vector2()
+
+	for attempts in range(10):  # Attempt up to 10 times to find a suitable location
+		position.x = randf() * viewport_size.x
+		position.y = randf() * viewport_size.y
+		var too_close = false
+
+		for weapon_info in weapons.get(weapon_type, []):
+			if position.distance_to(weapon_info["instance"].position) < min_distance:
+				too_close = true
+				break
+
+		if not too_close:
+			return position  # Found a suitable position
+
+	return Vector2()  # Return an empty vector if no suitable position is found
 
 func set_weapon_timeout(weapon_type):
 	# Create a timer and wait for it to timeout
@@ -39,7 +69,6 @@ func set_weapon_timeout(weapon_type):
 	await timer.timeout
 	# Check if the weapon still exists before trying to queue_free it
 	if weapons.has(weapon_type) and weapons[weapon_type] != null:
-	#if weapon_info["instance"] and not weapon_info["instance"].is_queued_for_deletion():
 		weapons[weapon_type].queue_free()
 		weapons[weapon_type] = null
 	spawn_weapon(weapon_type)
@@ -47,12 +76,19 @@ func set_weapon_timeout(weapon_type):
 func _process(delta):
 	var to_remove = []
 	for weapon_type in weapons.keys():
-		if weapons[weapon_type] != null:
-			var weapon_info = weapons[weapon_type]
-			weapon_info.timeout -= delta
-			if weapon_info.timeout <= 0:
+		var weapon_list = weapons[weapon_type]
+		for i in range(len(weapon_list) - 1, -1, -1):
+			var weapon_info = weapon_list[i]
+			weapon_info["timeout"] -= delta
+			if weapon_info["timeout"] <= 0:
 				weapon_info["instance"].queue_free()
-				to_remove.append(weapon_type)
+				weapon_list.remove_at(i)  # Remove the weapon from the list correctly
+
+		# Check if we need to respawn weapons to maintain two instances
+		if weapon_list.size() == 0 or weapon_list.size() < 2:
+			spawn_weapon(weapon_type)  # Ensure to maintain two instances
+
+	# Clean up weapon types if needed
 	for weapon_type in to_remove:
 		weapons.erase(weapon_type)
 		spawn_weapon(weapon_type)  # Re-spawn the weapon
