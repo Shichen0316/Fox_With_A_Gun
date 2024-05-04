@@ -79,14 +79,13 @@ func _process(delta):
 		var weapon_list = weapons[weapon_type]
 		for i in range(len(weapon_list) - 1, -1, -1):
 			var weapon_info = weapon_list[i]
-			weapon_info["timeout"] -= delta
+			weapon_info["timeout"] -= delta  # Correct decrement of timeout
 			if weapon_info["timeout"] <= 0:
-				weapon_info["instance"].queue_free()
+				weapon_info["instance"].queue_free()  # Properly access the instance to queue_free
 				weapon_list.remove_at(i)  # Remove the weapon from the list correctly
 
-		# Check if we need to respawn weapons to maintain two instances
-		if weapon_list.size() == 0 or weapon_list.size() < 2:
-			spawn_weapon(weapon_type)  # Ensure to maintain two instances
+		if weapon_list.empty() or weapon_list.size() < 2:
+			spawn_weapon(weapon_type)  # Ensure to maintain two instances if needed
 
 	# Clean up weapon types if needed
 	for weapon_type in to_remove:

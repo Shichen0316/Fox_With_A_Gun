@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b1yhwik1r6m2a"]
+[gd_scene load_steps=35 format=3 uid="uid://b1yhwik1r6m2a"]
 
 [ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="1_m5c1q"]
 [ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://yxf5cdv7x04q" path="res://assets/map/field.png" id="10_vblqe"]
 [ext_resource type="Texture2D" uid="uid://cyghm74t07qem" path="res://assets/map/ground tree.png" id="11_ek6pi"]
 [ext_resource type="Texture2D" uid="uid://h4jamiciypfr" path="res://assets/map/Map.png" id="11_l5si0"]
+[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://weapons/laser_gun.tscn" id="19_roejw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gcjrd"]
 tile_data = PackedInt32Array(0, 10, 2, 65536, 10, 3, 131072, 10, 2, 196608, 10, 3, 1, 65546, 2, 65537, 65546, 3, 131073, 65546, 2, 196609, 65546, 3, 2, 10, 2, 65538, 10, 3, 131074, 10, 2, 196610, 10, 3, 3, 65546, 2, 65539, 65546, 3, 131075, 65546, 2, 196611, 65546, 3)
@@ -14791,7 +14792,7 @@ follow_viewport_enabled = true
 offset_left = -1452.0
 offset_top = -975.0
 offset_right = 1447.0
-offset_bottom = 1016.0
+offset_bottom = 312.0
 color = Color(0.65098, 1, 0.545098, 1)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/ColorRect"]
@@ -14911,20 +14912,21 @@ text = "You are Dead."
 position = Vector2(-10.7143, 69)
 
 [node name="rifle" parent="." instance=ExtResource("7_65obb")]
-visible = false
-position = Vector2(96.4286, 68)
+position = Vector2(744.643, 449)
 
 [node name="shotgun" parent="." instance=ExtResource("9_6b73h")]
-visible = false
-position = Vector2(-132.143, 76)
+position = Vector2(-730.357, 130)
 
 [node name="rocketLauncher" parent="." instance=ExtResource("10_tvs0n")]
-visible = false
-position = Vector2(60.7142, 400)
+position = Vector2(29.4643, 517)
 
 [node name="lightSaber" parent="." instance=ExtResource("5_55v5a")]
 visible = false
-position = Vector2(-11.6071, 108)
+position = Vector2(-233.036, -453)
+
+[node name="laser gun" parent="." instance=ExtResource("19_roejw")]
+visible = false
+position = Vector2(281.25, -387)
 
 [node name="borders" type="Node2D" parent="."]
 
