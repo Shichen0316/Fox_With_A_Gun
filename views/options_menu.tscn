@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4s6ib3fyv8v4"]
+[gd_scene load_steps=16 format=3 uid="uid://c4s6ib3fyv8v4"]
 
 [ext_resource type="Script" path="res://views/options_menu.gd" id="1_fo3pg"]
-[ext_resource type="Texture2D" uid="uid://jmm45xq8mgbp" path="res://assets/characters/pixel-background-fox.jpeg" id="2_chqb4"]
+[ext_resource type="Texture2D" uid="uid://s0v8dvi0ob2w" path="res://assets/characters/pixel-background-fox.jpeg" id="2_chqb4"]
 [ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="3_b25ok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8gv4"]
@@ -16,7 +16,7 @@ shadow_offset = Vector2(1, 1)
 anti_aliasing_size = 0.936
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyd44"]
-bg_color = Color(0.105882, 0.662745, 0.807843, 1)
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
 border_width_bottom = 3
 border_color = Color(0.0235294, 0.270588, 0.439216, 1)
 corner_radius_top_left = 6
@@ -42,6 +42,48 @@ Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
 Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
 Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
 
+[sub_resource type="Theme" id="Theme_6gkoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb5r4"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nyvu"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wypyi"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.211765, 0.796078, 0.960784, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_xtpih"]
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/font_sizes/font_size = 8
+ItemList/fonts/font = ExtResource("3_b25ok")
+ItemList/styles/focus = SubResource("StyleBoxFlat_tb5r4")
+ItemList/styles/hovered = SubResource("StyleBoxFlat_4nyvu")
+ItemList/styles/panel = SubResource("StyleBoxFlat_wypyi")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hiuqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh2a2"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_54ycq"]
+Button/fonts/font = ExtResource("3_b25ok")
+Button/styles/normal = SubResource("StyleBoxFlat_dh2a2")
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -62,7 +104,7 @@ grow_vertical = 2
 texture = ExtResource("2_chqb4")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="optionsMenu" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,44 +116,104 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="optionsMenu"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Language" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Language" type="Button" parent="optionsMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Language"
 
-[node name="Resolution" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resolution" type="Button" parent="optionsMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Resolution"
 
-[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Controls" type="Button" parent="optionsMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Controls"
 
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Volume" type="Button" parent="optionsMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Volume"
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="optionsMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Language" to="." method="_on_language_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="showControls" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6gkoi")
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="showControls"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ItemList" type="ItemList" parent="showControls/VBoxContainer"]
+custom_minimum_size = Vector2(160, 150)
+layout_mode = 2
+theme = SubResource("Theme_xtpih")
+select_mode = 1
+allow_search = false
+item_count = 18
+max_columns = 2
+same_column_width = true
+item_0/text = "     KEYBINDS"
+item_0/icon = SubResource("CanvasTexture_hiuqh")
+item_1/text = ""
+item_2/text = ""
+item_3/text = " "
+item_4/text = "W"
+item_5/text = "Up"
+item_6/text = "A"
+item_7/text = "Left"
+item_8/text = "D"
+item_9/text = "Right"
+item_10/text = "S"
+item_11/text = "Down"
+item_12/text = "F"
+item_13/text = "Pick up weapon"
+item_14/text = "G"
+item_15/text = "Drop weapon"
+item_16/text = "Left click"
+item_17/text = "Shoot "
+
+[node name="Return" type="Button" parent="showControls/VBoxContainer/ItemList"]
+layout_mode = 0
+offset_right = 13.0
+offset_bottom = 15.0
+theme = SubResource("Theme_54ycq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "<
+"
+
+[connection signal="pressed" from="optionsMenu/VBoxContainer/Language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="optionsMenu/VBoxContainer/Resolution" to="." method="_on_resolution_pressed"]
+[connection signal="pressed" from="optionsMenu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="optionsMenu/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
+[connection signal="pressed" from="optionsMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="showControls/VBoxContainer/ItemList/Return" to="." method="_on_return_pressed"]
