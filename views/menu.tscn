@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://v2x7jv2oywdq"]
+[gd_scene load_steps=11 format=3 uid="uid://v2x7jv2oywdq"]
 
 [ext_resource type="Script" path="res://views/menu.gd" id="1_myuae"]
 [ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="1_w0r5y"]
-[ext_resource type="Texture2D" uid="uid://jmm45xq8mgbp" path="res://assets/characters/pixel-background-fox.jpeg" id="2_ncw0y"]
+[ext_resource type="Texture2D" uid="uid://dll6qq5ytsr70" path="res://assets/characters/pixel-background-fox.jpeg" id="2_ncw0y"]
+[ext_resource type="AudioStream" uid="uid://cml74xehstk48" path="res://assets/audio/music-startscreen.mp3" id="4_dqw2l"]
+[ext_resource type="AudioStream" uid="uid://ss5l1hahgact" path="res://assets/audio/button-click.mp3" id="5_0hd57"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kncy1"]
 bg_color = Color(0.462745, 0.858824, 0.988235, 1)
@@ -142,6 +144,17 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_w0r5y")
 text = "Quit"
+
+[node name="startscreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dqw2l")
+volume_db = -28.576
+autoplay = true
+
+[node name="buttonClick" type="AudioStreamPlayer" parent="."]
+process_priority = 1
+stream = ExtResource("5_0hd57")
+volume_db = -22.955
+pitch_scale = 1.29
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
