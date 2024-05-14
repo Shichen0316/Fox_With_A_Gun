@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1yhwik1r6m2a"]
+[gd_scene load_steps=36 format=3 uid="uid://b1yhwik1r6m2a"]
 
 [ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="1_m5c1q"]
 [ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
@@ -14779,6 +14779,12 @@ size = Vector2(2594, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwoom"]
 size = Vector2(4, 1994)
 
+[sub_resource type="SystemFont" id="SystemFont_0tr2h"]
+font_names = PackedStringArray("Rockwell")
+font_weight = 375
+font_stretch = 75
+msdf_size = 30
+
 [node name="gameLevel" type="Node2D"]
 position = Vector2(-3, 0)
 scale = Vector2(1.12, 1)
@@ -14789,10 +14795,8 @@ layer = -1
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1452.0
-offset_top = -975.0
-offset_right = 1447.0
-offset_bottom = 1018.0
+offset_right = 2899.0
+offset_bottom = 1993.0
 scale = Vector2(0.996819, 0.99753)
 color = Color(0.65098, 1, 0.545098, 1)
 
@@ -14966,6 +14970,24 @@ collision_mask = 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/RightBorder"]
 position = Vector2(1291.64, 20)
 shape = SubResource("RectangleShape2D_hwoom")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 128.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.86
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_0tr2h")
+theme_override_font_sizes/font_size = 8
+text = "Score: 0"
 
 [connection signal="health_depleted" from="farm" to="." method="_on_static_body_2d_health_depleted"]
 [connection signal="fox_health_depleted" from="playerFox" to="." method="_on_player_fox_fox_health_depleted"]

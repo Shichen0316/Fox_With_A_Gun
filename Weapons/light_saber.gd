@@ -12,7 +12,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if picked == true:
-		self.position = get_node("/root/gameLevel/playerFox/lightsaberPosition").global_position
+		self.global_position = get_node("/root/gameLevel/playerFox/lightsaberPosition").global_position
 
 func _input(event):
 	if Input. is_action_just_pressed("ui_pick"):
