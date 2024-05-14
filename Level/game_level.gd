@@ -15,7 +15,6 @@ func _ready():
 	spawn_bear()
 	spawn_bear()
 	spawn_all_weapons()
-	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
 
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():

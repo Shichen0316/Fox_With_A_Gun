@@ -14967,12 +14967,6 @@ collision_mask = 15
 position = Vector2(1291.64, 20)
 shape = SubResource("RectangleShape2D_hwoom")
 
-[node name="Language_switcher" type="Button" parent="." groups=["translatable"]]
-offset_left = -192.0
-offset_top = -93.0
-offset_right = -139.0
-offset_bottom = -62.0
-
 [connection signal="health_depleted" from="farm" to="." method="_on_static_body_2d_health_depleted"]
 [connection signal="fox_health_depleted" from="playerFox" to="." method="_on_player_fox_fox_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

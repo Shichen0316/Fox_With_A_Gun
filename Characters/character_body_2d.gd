@@ -16,7 +16,7 @@ func _ready():
 	
 # for taking damage from bullet 
 func take_damage():
-	health -= 2.0
+	health -= 4.0
 	
 func _physics_process(_delta):
 	# get input direction

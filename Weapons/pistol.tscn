@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://sn4p7jd61luf"]
 
 [ext_resource type="Texture2D" uid="uid://bc63y7iqdi0ys" path="res://Asset/Weapons/Pistol.png" id="1_1mbai"]
-[ext_resource type="Script" path="res://Weapons/pistol.gd" id="1_3kl8g"]
+[ext_resource type="Script" path="res://weapons/pistol.gd" id="1_poqtv"]
 [ext_resource type="AudioStream" uid="uid://c6q3yitykjy1l" path="res://assets/audio/rifle-shoot.mp3" id="3_ria2q"]
 [ext_resource type="AudioStream" uid="uid://7jjtj8n24t3f" path="res://assets/audio/gun-pickup.mp3" id="4_bsu2f"]
 
@@ -95,7 +95,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [node name="pistol" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_3kl8g")
+script = ExtResource("1_poqtv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1gx1x")

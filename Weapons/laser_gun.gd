@@ -11,6 +11,7 @@ var can_fire = true
 
 func _ready():
 	animation_tree.active = true
+	print("Node Type: ", get_class())
 	
 func _physics_process(delta):
 	var enemies_in_range = get_overlapping_bodies()

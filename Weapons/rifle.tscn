@@ -110,6 +110,7 @@ rotation = 0.198758
 texture = ExtResource("1_p1n0n")
 hframes = 5
 vframes = 4
+frame = 5
 
 [node name="rifleShootingPoint" type="Marker2D" parent="weaponPivot/Rifle"]
 unique_name_in_owner = true

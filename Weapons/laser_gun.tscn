@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://1p81a6agcsxh"]
+[gd_scene load_steps=18 format=3 uid="uid://1p81a6agcsxh"]
 
 [ext_resource type="Script" path="res://Weapons/laser_gun.gd" id="1_kfiq2"]
 [ext_resource type="Texture2D" uid="uid://ce13d43kpmayu" path="res://Asset/Weapons/Laser gun.png" id="1_u8ayi"]
-[ext_resource type="Script" path="res://Weapons/LaserGun.gd" id="3_g58g5"]
 [ext_resource type="AudioStream" uid="uid://bxcj76c3638cm" path="res://assets/audio/lasergun-shot.mp3" id="4_ssili"]
 [ext_resource type="AudioStream" uid="uid://bbygbcijdmj4x" path="res://assets/audio/rifle-pickup.mp3" id="5_1o567"]
 
@@ -130,7 +129,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_u8ayi")
 hframes = 2
 vframes = 4
-script = ExtResource("3_g58g5")
 
 [node name="lasergunShootingPoint" type="Marker2D" parent="weaponPivot/LaserGun"]
 unique_name_in_owner = true

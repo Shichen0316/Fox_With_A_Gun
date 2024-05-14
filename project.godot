@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CherryIceCream"
-run/main_scene="res://Level/game_Level.tscn"
+run/main_scene="res://views/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LanguageManager="*res://languages/LanguageManager.tscn"
 languageDictionary="*res://languages/dictionary.gd"
+GameController="res://Level/gameController.gd"
 
 [display]
 
