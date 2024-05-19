@@ -55,7 +55,7 @@ func _process(delta):
 		var split = weapon_type.split("___")
 		var type = split[0]
 		var idx = split[1]
-			
+		
 		spawn_weapon(type,idx)  # Re-spawn the weapon
 
 # spwan normal bears on Path2D 
