@@ -1,4 +1,5 @@
 extends Node2D
+@onready var button_click = $buttonClick
 
 var weapon_scenes = {
 	"rifle": preload("res://weapons/rifle.tscn"),
@@ -98,7 +99,7 @@ func _on_timer_gunman_timeout():
 
 # pause the game and show the "you arer dead" layer when player_fox has 0 health 
 func _on_player_fox_fox_health_depleted():
-	%youAreDead.visible = true
+	%gameOver.visible = true
 	get_tree().paused = true
 
 # pause the game and show the "you arer dead" layer when the farm has 0 health 
@@ -113,3 +114,35 @@ func _on_button_pressed():
 	else:
 		LanguageManager.set_language("EN")
 	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
+
+
+
+func _on_play_again_pressed():
+	button_click.play()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_go_main_menu_pressed():
+	button_click.play()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://views/menu.tscn")
+	
+	
+
+func _on_resume_game_pressed():
+	button_click.play()
+	get_tree().paused = false
+	%pauseMenu.visible = false
+
+
+func _on_restart_game_pressed():
+	button_click.play()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_pause_button_pressed():
+	button_click.play()
+	get_tree().paused = true
+	%pauseMenu.visible = true

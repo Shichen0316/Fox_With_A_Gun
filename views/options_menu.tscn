@@ -1,10 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4s6ib3fyv8v4"]
+[gd_scene load_steps=19 format=3 uid="uid://c4s6ib3fyv8v4"]
 
 [ext_resource type="Script" path="res://views/options_menu.gd" id="1_fo3pg"]
-[ext_resource type="Texture2D" uid="uid://dll6qq5ytsr70" path="res://assets/characters/pixel-background-fox.jpeg" id="2_chqb4"]
+[ext_resource type="Texture2D" uid="uid://bvu7430d062x" path="res://assets/characters/pixel-background-fox.jpeg" id="2_chqb4"]
 [ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="3_b25ok"]
 [ext_resource type="AudioStream" uid="uid://bstmlw5vov0yw" path="res://assets/audio/music-startscreen2.mp3" id="4_xy8lt"]
 [ext_resource type="AudioStream" uid="uid://ss5l1hahgact" path="res://assets/audio/button-click.mp3" id="5_kpq40"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bwhf3"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8gv4"]
 bg_color = Color(0.462745, 0.858824, 0.988235, 1)
@@ -40,6 +45,7 @@ shadow_offset = Vector2(1, 1)
 anti_aliasing_size = 0.936
 
 [sub_resource type="Theme" id="Theme_ln7v8"]
+Button/styles/focus = SubResource("StyleBoxLine_bwhf3")
 Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
 Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
 Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
