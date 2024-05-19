@@ -1,30 +1,36 @@
-[gd_scene load_steps=36 format=3 uid="uid://b1yhwik1r6m2a"]
+[gd_scene load_steps=42 format=3 uid="uid://b7064mifk8dfy"]
 
-[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://Characters/character_body_2d.tscn" id="1_m5c1q"]
-[ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
-[ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://Level/farm_collision.tscn" id="3_0mng0"]
-[ext_resource type="Texture2D" uid="uid://cu2x5kx1sxh0f" path="res://assets/map/Bush.png" id="4_136fd"]
-[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://Weapons/light_saber.tscn" id="5_55v5a"]
-[ext_resource type="Texture2D" uid="uid://dcoxphuqgjgfo" path="res://assets/map/treeTiles.png" id="5_sus1a"]
-[ext_resource type="Texture2D" uid="uid://d0pb2iwlecif6" path="res://assets/map/Fence.png" id="6_gyiwj"]
-[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="7_65obb"]
-[ext_resource type="Texture2D" uid="uid://dcah2r88dxltq" path="res://assets/map/hut 1.png" id="7_dh28n"]
-[ext_resource type="Texture2D" uid="uid://cv5jfce0tpurw" path="res://assets/map/hut 2.png" id="8_n156e"]
-[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/pistol.tscn" id="8_wonmh"]
-[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://Weapons/shotgun.tscn" id="9_6b73h"]
-[ext_resource type="Texture2D" uid="uid://bkqska0ms35xf" path="res://assets/map/mix bushes.png" id="9_qno1l"]
-[ext_resource type="Texture2D" uid="uid://bn5vn3gec5j4i" path="res://assets/map/trees.png" id="10_dpd74"]
-[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://Weapons/rocket_launcher.tscn" id="10_tvs0n"]
-[ext_resource type="Texture2D" uid="uid://yxf5cdv7x04q" path="res://assets/map/field.png" id="10_vblqe"]
-[ext_resource type="Texture2D" uid="uid://cyghm74t07qem" path="res://assets/map/ground tree.png" id="11_ek6pi"]
-[ext_resource type="Texture2D" uid="uid://h4jamiciypfr" path="res://assets/map/Map.png" id="11_l5si0"]
-[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="19_roejw"]
+[ext_resource type="Script" path="res://Level/tutorial_level.gd" id="1_sffvi"]
+[ext_resource type="Texture2D" uid="uid://bn5vn3gec5j4i" path="res://assets/map/trees.png" id="2_nub28"]
+[ext_resource type="Texture2D" uid="uid://h4jamiciypfr" path="res://assets/map/Map.png" id="3_qmpo5"]
+[ext_resource type="Texture2D" uid="uid://cu2x5kx1sxh0f" path="res://assets/map/Bush.png" id="4_nog88"]
+[ext_resource type="Texture2D" uid="uid://dcoxphuqgjgfo" path="res://assets/map/treeTiles.png" id="5_a5aff"]
+[ext_resource type="Texture2D" uid="uid://d0pb2iwlecif6" path="res://assets/map/Fence.png" id="6_wyjkh"]
+[ext_resource type="Texture2D" uid="uid://dcah2r88dxltq" path="res://assets/map/hut 1.png" id="7_xxsao"]
+[ext_resource type="Texture2D" uid="uid://cv5jfce0tpurw" path="res://assets/map/hut 2.png" id="8_dit0v"]
+[ext_resource type="Texture2D" uid="uid://bkqska0ms35xf" path="res://assets/map/mix bushes.png" id="9_km7pe"]
+[ext_resource type="Texture2D" uid="uid://yxf5cdv7x04q" path="res://assets/map/field.png" id="10_8a83f"]
+[ext_resource type="Texture2D" uid="uid://cyghm74t07qem" path="res://assets/map/ground tree.png" id="11_yiscm"]
+[ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://Level/farm_collision.tscn" id="12_efgla"]
+[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://Characters/character_body_2d.tscn" id="13_tlf4u"]
+[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/pistol.tscn" id="14_oj1ur"]
+[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="15_q5qbp"]
+[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://Weapons/shotgun.tscn" id="16_8knaa"]
+[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://Weapons/rocket_launcher.tscn" id="17_lcc72"]
+[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://Weapons/light_saber.tscn" id="18_5p4o8"]
+[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="19_cvq0v"]
+[ext_resource type="Texture2D" uid="uid://d1jr2x7gix68w" path="res://assets/UI/w.jpg" id="20_10745"]
+[ext_resource type="Texture2D" uid="uid://dqp5cl57pswdb" path="res://assets/UI/s.jpg" id="21_vpbov"]
+[ext_resource type="Texture2D" uid="uid://bqyfcvpggqih7" path="res://assets/UI/a.jpg" id="22_ix0gq"]
+[ext_resource type="Texture2D" uid="uid://72bif0885u1u" path="res://assets/UI/d.jpg" id="23_iiypn"]
+[ext_resource type="Texture2D" uid="uid://bmlcswtxmf78h" path="res://assets/UI/f.jpg" id="24_ydhku"]
+[ext_resource type="Texture2D" uid="uid://diixtosg15epc" path="res://assets/UI/g.jpg" id="25_rj6oy"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gcjrd"]
 tile_data = PackedInt32Array(0, 10, 2, 65536, 10, 3, 131072, 10, 2, 196608, 10, 3, 1, 65546, 2, 65537, 65546, 3, 131073, 65546, 2, 196609, 65546, 3, 2, 10, 2, 65538, 10, 3, 131074, 10, 2, 196610, 10, 3, 3, 65546, 2, 65539, 65546, 3, 131075, 65546, 2, 196611, 65546, 3)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idxdo"]
-texture = ExtResource("10_dpd74")
+texture = ExtResource("2_nub28")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -87,7 +93,7 @@ texture = ExtResource("10_dpd74")
 1:9/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybk66"]
-texture = ExtResource("11_l5si0")
+texture = ExtResource("3_qmpo5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -11622,7 +11628,7 @@ texture = ExtResource("11_l5si0")
 61:61/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acj7y"]
-texture = ExtResource("4_136fd")
+texture = ExtResource("4_nog88")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -11673,7 +11679,7 @@ texture = ExtResource("4_136fd")
 1:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5tf8"]
-texture = ExtResource("5_sus1a")
+texture = ExtResource("5_a5aff")
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -11910,7 +11916,7 @@ texture = ExtResource("5_sus1a")
 13:8/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8ksj"]
-texture = ExtResource("6_gyiwj")
+texture = ExtResource("6_wyjkh")
 0:14/0 = 0
 0:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:14/0/physics_layer_0/angular_velocity = 0.0
@@ -12425,7 +12431,7 @@ texture = ExtResource("6_gyiwj")
 31:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ryio"]
-texture = ExtResource("7_dh28n")
+texture = ExtResource("7_xxsao")
 14:11/0 = 0
 14:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:11/0/physics_layer_0/angular_velocity = 0.0
@@ -12680,7 +12686,7 @@ texture = ExtResource("7_dh28n")
 19:20/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7unx"]
-texture = ExtResource("8_n156e")
+texture = ExtResource("8_dit0v")
 14:12/0 = 0
 14:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:12/0/physics_layer_0/angular_velocity = 0.0
@@ -12833,7 +12839,7 @@ texture = ExtResource("8_n156e")
 19:18/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chl08"]
-texture = ExtResource("9_qno1l")
+texture = ExtResource("9_km7pe")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -13212,7 +13218,7 @@ texture = ExtResource("9_qno1l")
 13:12/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r87a8"]
-texture = ExtResource("10_vblqe")
+texture = ExtResource("10_8a83f")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -13983,7 +13989,7 @@ texture = ExtResource("10_vblqe")
 15:15/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cksjw"]
-texture = ExtResource("11_ek6pi")
+texture = ExtResource("11_yiscm")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -14788,15 +14794,17 @@ msdf_size = 30
 [node name="gameLevel" type="Node2D"]
 position = Vector2(-3, 0)
 scale = Vector2(1.12, 1)
-script = ExtResource("1_rfna0")
+script = ExtResource("1_sffvi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 2899.0
-offset_bottom = 1993.0
+offset_left = -1277.0
+offset_top = -828.0
+offset_right = 1301.0
+offset_bottom = 1023.0
 scale = Vector2(0.996819, 0.99753)
 color = Color(0.65098, 1, 0.545098, 1)
 
@@ -14815,6 +14823,7 @@ limit_bottom = 1019
 editor_draw_screen = false
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 scale = Vector2(1.21005, 1.29927)
 tile_set = SubResource("TileSet_8pvia")
 format = 2
@@ -14827,15 +14836,15 @@ layer_2/tile_data = PackedInt32Array(-1310764, 786448, 14, -1245228, 786448, 15,
 layer_3/name = "treeLayer"
 layer_3/tile_data = PackedInt32Array(-65505, 65546, 6, 131098, 65546, 6, 327706, 65546, 6, 131090, 65546, 6, -917489, 65546, 6, 1834976, 10, 2, 1900512, 10, 3, 1834977, 65546, 2, 1900513, 65546, 3, 1900510, 10, 2, 1966046, 10, 3, 1900511, 65546, 2, 1966047, 65546, 3, 1245174, 10, 0, 1310710, 10, 1, 1245175, 65546, 0, 1310711, 65546, 1, -1179621, 196625, 6, -1114085, 196625, 7, -1048549, 196625, 8, -1179620, 262161, 6, -1114084, 262161, 7, -1048548, 262161, 8, -983010, 196625, 6, -917474, 196625, 7, -851938, 196625, 8, -983009, 262161, 6, -917473, 262161, 7, -851937, 262161, 8, -917476, 196625, 268435462, -917477, 262161, 268435462, -851940, 196625, 268435463, -851941, 262161, 268435463, -786404, 196625, 268435464, -786405, 262161, 268435464, 917516, 262161, 268435462, 983052, 262161, 268435463, 1048588, 262161, 268435464, 917517, 196625, 268435462, 851982, 196625, 6, 917518, 196625, 7, 983054, 196625, 8, 851983, 262161, 6, 917519, 262161, 7, 983055, 262161, 8, 983053, 196625, 268435463, 1048589, 196625, 268435464, 1114125, 262161, 268435463, 1179661, 262161, 268435464, 1048590, 196625, 268435462, 1114126, 196625, 268435463, 1179662, 196625, 268435464, 917520, 196625, 6, 983056, 196625, 7, 1048592, 196625, 8, 917521, 262161, 6, 983057, 262161, 7, 1048593, 262161, 8, 1245170, 262161, 19, 1310706, 262161, 20, 1179635, 327697, 18, 1245171, 327697, 19, 1310707, 327697, 20, 1179636, 393233, 18, 1245172, 393233, 19, 1310708, 393233, 20, 1048561, 327697, 268435474, 1048560, 393233, 268435474, 1114098, 262161, 268435475, 1114097, 327697, 268435475, 1114096, 393233, 268435475, 1179634, 262161, 268435476, 1179633, 327697, 268435476, 1179632, 393233, 268435476, 524296, 327697, 268435474, 524295, 393233, 268435474, 589833, 262161, 268435475, 589832, 327697, 268435475, 589831, 393233, 268435475, 655369, 262161, 268435476, 655368, 327697, 268435476, 655367, 393233, 268435476, -327717, 327697, 1, -262181, 327697, 2, -327716, 393233, 1, -262180, 393233, 2, -327715, 458769, 268435458, -262179, 458769, 2, -131108, 327697, 268435458, -65572, 327697, 2, -131107, 393233, 1, -65571, 393233, 2, -131106, 458769, 1, -65570, 458769, 2, -196644, 327697, 268435457, -196645, 393233, 268435457, -196646, 458769, 268435457, -131109, 393233, 268435458, -131110, 458769, 268435458, -393249, 327697, 268435457, -393250, 393233, 268435457, -393251, 458769, 268435457, -327713, 327697, 268435458, -327714, 393233, 268435458, 1310675, 458769, 268435457, 1376211, 458769, 268435458, 1179604, 327697, 1, 1245140, 327697, 2, 1310676, 393233, 268435457, 1376212, 393233, 268435458, 1179605, 393233, 1, 1245141, 393233, 2, 1310677, 327697, 268435457, 1376213, 327697, 268435458, 1441749, 327697, 2, 1114070, 458769, 268435457, 1179606, 458769, 268435458, 1245142, 458769, 2, 1376214, 393233, 1, 1441750, 393233, 2, 1114071, 393233, 268435457, 1179607, 393233, 268435458, 1376215, 458769, 1, 1441751, 458769, 2, 1114072, 327697, 268435457, 1179608, 327697, 268435458, 1114056, 13, 1, 1179592, 13, 2, 1114057, 65549, 1, 1179593, 65549, 2, 917458, 13, 1, 982994, 13, 2, 917459, 65549, 1, 982995, 65549, 2, 589818, 720913, 5, 655354, 720913, 6, 589819, 786449, 5, 655355, 786449, 6, 720891, 786449, 7, 589820, 851985, 5, 655356, 851985, 6, 720892, 851985, 7, 589821, 917521, 5, 655357, 917521, 6, 589822, 983057, 5, 655358, 983057, 6, 2686980, 786448, 14, 2752516, 786448, 15, 2818052, 786448, 16, 2883588, 786448, 17, 2949124, 786448, 18, 2621445, 851984, 13, 2686981, 851984, 14, 2752517, 851984, 15, 2818053, 851984, 16, 2883589, 851984, 17, 2949125, 851984, 18, 2555910, 917520, 12, 2621446, 917520, 13, 2686982, 917520, 14, 2752518, 917520, 15, 2818054, 917520, 16, 2883590, 917520, 17, 2949126, 917520, 18, 2555911, 983056, 12, 2621447, 983056, 13, 2686983, 983056, 14, 2752519, 983056, 15, 2818055, 983056, 16, 2883591, 983056, 17, 2949127, 983056, 18, 2555912, 1048592, 12, 2621448, 1048592, 13, 2686984, 1048592, 14, 2752520, 1048592, 15, 2818056, 1048592, 16, 2883592, 1048592, 17, 2949128, 1048592, 18, 2555913, 1114128, 12, 2621449, 1114128, 13, 2686985, 1114128, 14, 2752521, 1114128, 15, 2818057, 1114128, 16, 2883593, 1114128, 17, 2949129, 1114128, 18, 2621450, 1179664, 13, 2686986, 1179664, 14, 2752522, 1179664, 15, 2818058, 1179664, 16, 2883594, 1179664, 17, 2949130, 1179664, 18, 2686987, 1245200, 14, 2752523, 1245200, 15, 2818059, 1245200, 16, 2883595, 1245200, 17, 2949131, 1245200, 18, -2097111, 12, 2, -2097110, 65548, 2, 851938, 458769, 268435457, 917474, 458769, 268435458, 720867, 327697, 1, 786403, 327697, 2, 851939, 393233, 268435457, 917475, 393233, 268435458, 720868, 393233, 1, 786404, 393233, 2, 851940, 327697, 268435457, 917476, 327697, 268435458, 983012, 327697, 2, 655333, 458769, 2, 720869, 458769, 268435458, 786405, 458769, 2, 917477, 393233, 1, 983013, 393233, 2, 655334, 393233, 268435457, 720870, 393233, 268435458, 917478, 458769, 1, 983014, 458769, 2, 655335, 327697, 268435457, 720871, 327697, 268435458, 524257, 458769, 268435457, 589793, 458769, 268435458, 393186, 327697, 1, 458722, 327697, 2, 524258, 393233, 268435457, 589794, 393233, 268435458, 393187, 393233, 1, 458723, 393233, 2, 524259, 327697, 268435457, 589795, 327697, 268435458, 655331, 327697, 2, 327652, 458769, 268435457, 393188, 458769, 268435458, 458724, 458769, 2, 589796, 393233, 1, 655332, 393233, 2, 327653, 393233, 268435457, 393189, 393233, 268435458, 589797, 458769, 1, 327654, 327697, 268435457, 393190, 327697, 268435458, -2031575, 12, 3, -2031574, 65548, 3, -327694, 589841, 268435461, -327693, 524305, 268435461, -262157, 524305, 268435462, -327692, 458769, 268435461, -262156, 458769, 268435462, -458745, 589841, 268435461, -458744, 524305, 268435461, -393208, 524305, 268435462, -458743, 458769, 268435461, -393207, 458769, 268435462, 327675, 458769, 6, 393212, 458769, 6, 393213, 524305, 6, 327677, 524305, 5, 327676, 458769, 5, 327678, 589841, 5, -720850, 65546, 6, -917445, 65546, 6, -1834980, 65546, 6, 1966020, 655377, 8, 2031556, 655377, 9, 1966021, 720913, 8, 2031557, 720913, 9, 2031558, 786449, 9, -196604, 655377, 8, -131068, 655377, 9, -196603, 720913, 8, -131067, 720913, 9, -131066, 786449, 9)
 
-[node name="farm" parent="." instance=ExtResource("3_0mng0")]
+[node name="farm" parent="." instance=ExtResource("12_efgla")]
 position = Vector2(3, -45)
 
-[node name="playerFox" parent="." instance=ExtResource("1_m5c1q")]
-position = Vector2(3, 17)
+[node name="playerFox" parent="." instance=ExtResource("13_tlf4u")]
+position = Vector2(0.892857, 52)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-30.4645, -54.343)
-scale = Vector2(0.861611, 0.772749)
+position = Vector2(1060.24, -13.9243)
+scale = Vector2(0.0118675, 0.137685)
 curve = SubResource("Curve2D_sfksj")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -14844,14 +14853,15 @@ position = Vector2(1316, 1147)
 rotation = -3.13181
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="Timer_big" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 autostart = true
 
 [node name="Timer_gunman" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 20.0
 autostart = true
 
 [node name="Timer_game time" type="Timer" parent="."]
@@ -14913,67 +14923,73 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "You are Dead."
 
-[node name="pistol" parent="." instance=ExtResource("8_wonmh")]
-position = Vector2(-10.7143, 69)
+[node name="pistol" parent="." instance=ExtResource("14_oj1ur")]
+position = Vector2(-10.7143, 142)
 
-[node name="rifle" parent="." instance=ExtResource("7_65obb")]
-visible = false
-position = Vector2(744.643, 449)
+[node name="rifle" parent="." instance=ExtResource("15_q5qbp")]
+position = Vector2(-12.5, 209)
 
-[node name="shotgun" parent="." instance=ExtResource("9_6b73h")]
-visible = false
-position = Vector2(-730.357, 130)
+[node name="shotgun" parent="." instance=ExtResource("16_8knaa")]
+position = Vector2(-86.6071, 209)
 
-[node name="rocketLauncher" parent="." instance=ExtResource("10_tvs0n")]
-visible = false
-position = Vector2(29.4643, 517)
+[node name="rocketLauncher" parent="." instance=ExtResource("17_lcc72")]
+position = Vector2(62.5, 209)
 
-[node name="lightSaber" parent="." instance=ExtResource("5_55v5a")]
-visible = false
-position = Vector2(-233.036, -453)
+[node name="lightSaber" parent="." instance=ExtResource("18_5p4o8")]
+position = Vector2(-150, 205)
 
-[node name="laser gun" parent="." instance=ExtResource("19_roejw")]
-visible = false
-position = Vector2(281.25, -387)
+[node name="laser gun" parent="." instance=ExtResource("19_cvq0v")]
+position = Vector2(123.214, 207)
 
 [node name="borders" type="Node2D" parent="."]
+visible = false
 
 [node name="TopBorder" type="StaticBody2D" parent="borders"]
+visible = false
 position = Vector2(3, 0)
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/TopBorder"]
+visible = false
 position = Vector2(-3, -975)
 shape = SubResource("RectangleShape2D_rxwol")
 
 [node name="BottomBorder" type="StaticBody2D" parent="borders"]
+visible = false
 position = Vector2(3, 0)
 collision_mask = 15
 constant_linear_velocity = Vector2(2593.85, 2)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="borders/BottomBorder"]
+visible = false
 position = Vector2(-3, 1017)
 shape = SubResource("RectangleShape2D_rxwol")
 
 [node name="LeftBorder" type="StaticBody2D" parent="borders"]
+visible = false
 position = Vector2(3, 0)
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/LeftBorder"]
+visible = false
 position = Vector2(-1298.54, 22)
 shape = SubResource("RectangleShape2D_hwoom")
 
 [node name="RightBorder" type="StaticBody2D" parent="borders"]
+visible = false
 position = Vector2(3, 0)
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/RightBorder"]
+visible = false
 position = Vector2(1291.64, 20)
 shape = SubResource("RectangleShape2D_hwoom")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer2"]
+visible = false
 custom_minimum_size = Vector2(20, 2.08165e-12)
 offset_left = 10.0
 offset_top = 10.0
@@ -14988,6 +15004,63 @@ theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_0tr2h")
 theme_override_font_sizes/font_size = 8
 text = "Score: 0"
+
+[node name="w" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="W" type="Sprite2D" parent="w"]
+position = Vector2(-3.38813e-21, 13)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("20_10745")
+
+[node name="a" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="A" type="Sprite2D" parent="a"]
+position = Vector2(-41, 55)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("22_ix0gq")
+
+[node name="s" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="S" type="Sprite2D" parent="s"]
+position = Vector2(0, 85)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("21_vpbov")
+
+[node name="d" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="D" type="Sprite2D" parent="d"]
+position = Vector2(36, 55)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("23_iiypn")
+
+[node name="f" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="F" type="Sprite2D" parent="f"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-42, 142)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("24_ydhku")
+
+[node name="g" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+follow_viewport_enabled = true
+
+[node name="G" type="Sprite2D" parent="g"]
+position = Vector2(-42, 142)
+scale = Vector2(0.056, 0.05)
+texture = ExtResource("25_rj6oy")
 
 [connection signal="health_depleted" from="farm" to="." method="_on_static_body_2d_health_depleted"]
 [connection signal="fox_health_depleted" from="playerFox" to="." method="_on_player_fox_fox_health_depleted"]

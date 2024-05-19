@@ -9,7 +9,7 @@ func _on_play_pressed():
 
 func _on_tutorial_pressed():
 	button_click.play()
-	pass
+	get_tree().change_scene_to_file("res://Level/tutorial_level.tscn")
 
 
 func _on_options_pressed():

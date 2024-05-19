@@ -9,19 +9,11 @@ var weapon_scenes = {
 }
 var weapons = {}  # Changed to dictionary for tracking individual weapons
 
-func _ready():
-	randomize()
-	spawn_bear()
-	spawn_bear()
-	spawn_bear()
-	spawn_all_weapons()
+var is_visible: bool = false
 
-func spawn_all_weapons():
-	for weapon_type in weapon_scenes.keys():
-		if not weapons.has(weapon_type) or weapons[weapon_type] == null:
-			for idx in range(12):
-				spawn_weapon(weapon_type,idx)
-
+#func _ready():
+	#spawn_bear()
+	
 func spawn_weapon(weapon_type, index):
 	var weapon_scene = weapon_scenes[weapon_type]
 	if weapon_scene == null:
@@ -54,8 +46,8 @@ func _process(delta):
 		var split = weapon_type.split("___")
 		var type = split[0]
 		var idx = split[1]
-			
-		spawn_weapon(type,idx)  # Re-spawn the weapon
+		
+		# spawn_weapon(type,idx)  # Re-spawn the weapon
 
 # spwan normal bears on Path2D 
 func spawn_bear():
@@ -113,3 +105,24 @@ func _on_button_pressed():
 	else:
 		LanguageManager.set_language("EN")
 	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
+	
+func _input(event):
+	if Input. is_action_just_pressed("up"):
+		%w.visible = false
+	
+	if Input. is_action_just_pressed("down"):
+		%s.visible = false
+		
+	if Input. is_action_just_pressed("left"):
+		%a.visible = false
+		
+	if Input. is_action_just_pressed("right"):
+		%d.visible = false	
+		
+	if Input. is_action_just_pressed("ui_pick") and not is_visible:
+		%f.visible = false	
+		%g.visible = true
+		is_visible = true	
+		
+	if Input. is_action_just_pressed("ui_drop"):
+		%g.visible = false 

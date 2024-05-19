@@ -74,3 +74,4 @@ func update_animtaion_parameters():
 	else:
 		animation_tree["parameters/conditions/fire"] = false
 		animation_tree["parameters/conditions/idle"] = true
+		
