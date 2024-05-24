@@ -25,7 +25,9 @@ var languages = {
 		"Main_Menu":"Main_Menu",
 		"resumeGame":"Resume",
 		"restartGame":"Restart",
-		"goMainMenu":"Main Menu"
+		"goMainMenu":"Back to Main Menu",
+		"gameOver":"Game Over",
+		"playAgain":"Play Again",
 	},
 		"HU": {
 		"changeLanguage":"Másik nyelv",
@@ -48,7 +50,9 @@ var languages = {
 		"Main_Menu":"Fő_Menü",
 		"resumeGame":"Szünet",
 		"restartGame":"Újrakezdés",
-		"goMainMenu":"Fő menű"
+		"goMainMenu":"Fő menű",
+		"gameOver":"Halott vagy",
+		"playAgain":"Játssz újra",
 	},
 }
 

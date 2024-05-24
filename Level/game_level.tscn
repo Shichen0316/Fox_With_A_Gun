@@ -14939,7 +14939,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.541176)
 
-[node name="Label" type="Label" parent="gameOver/ColorRect"]
+[node name="gameOver" type="Label" parent="gameOver/ColorRect" groups=["translatable"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -14954,9 +14954,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("14_1xqba")
 theme_override_font_sizes/font_size = 28
-text = "Game Over"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="gameOver/ColorRect/Label"]
+[node name="VBoxContainer" type="VBoxContainer" parent="gameOver/ColorRect/gameOver"]
 process_priority = 2
 process_physics_priority = 2
 layout_mode = 0
@@ -14967,7 +14966,7 @@ offset_bottom = 102.5
 scale = Vector2(0.898073, 1.03934)
 theme_override_constants/separation = 10
 
-[node name="playAgain" type="Button" parent="gameOver/ColorRect/Label/VBoxContainer"]
+[node name="playAgain" type="Button" parent="gameOver/ColorRect/gameOver/VBoxContainer" groups=["translatable"]]
 process_mode = 3
 custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
@@ -14977,9 +14976,8 @@ theme = SubResource("Theme_k365l")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("14_1xqba")
-text = "Play again"
 
-[node name="goMainMenu" type="Button" parent="gameOver/ColorRect/Label/VBoxContainer"]
+[node name="goMainMenu" type="Button" parent="gameOver/ColorRect/gameOver/VBoxContainer" groups=["translatable"]]
 process_mode = 3
 custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
@@ -14989,7 +14987,6 @@ theme = SubResource("Theme_ajw4a")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("14_1xqba")
-text = "Main menu"
 
 [node name="pauseMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -15199,8 +15196,8 @@ attenuation = 0.7
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer_big" to="." method="_on_timer_big_timeout"]
 [connection signal="timeout" from="Timer_gunman" to="." method="_on_timer_gunman_timeout"]
-[connection signal="pressed" from="gameOver/ColorRect/Label/VBoxContainer/playAgain" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="gameOver/ColorRect/Label/VBoxContainer/goMainMenu" to="." method="_on_go_main_menu_pressed"]
+[connection signal="pressed" from="gameOver/ColorRect/gameOver/VBoxContainer/playAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="gameOver/ColorRect/gameOver/VBoxContainer/goMainMenu" to="." method="_on_go_main_menu_pressed"]
 [connection signal="pressed" from="pauseMenu/ColorRect/Label/VBoxContainer/resumeGame" to="." method="_on_resume_game_pressed"]
 [connection signal="pressed" from="pauseMenu/ColorRect/Label/VBoxContainer/restartGame" to="." method="_on_restart_game_pressed"]
 [connection signal="pressed" from="pauseMenu/ColorRect/Label/VBoxContainer/goMainMenu" to="." method="_on_go_main_menu_pressed"]
