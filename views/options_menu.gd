@@ -69,7 +69,6 @@ func _on_back_from_language_pressed():
 	show_language.visible = false
 	options_menu.visible = true
 
-
 func _on_english_pressed():
 	button_click.play()
 	show_language.visible = false

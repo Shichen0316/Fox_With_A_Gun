@@ -1,3 +1,4 @@
+# This file handles the initialization and gameplay mechanics, including spawning enemies, managing weapons, handling player interactions, and implementing language changes.
 extends Node2D
 @onready var button_click = $buttonClick
 
@@ -18,6 +19,7 @@ func _ready():
 	spawn_all_weapons()
 	_on_language_changed()
 
+# Updates text for all nodes in the "translatable" group according to the current language settings from the LanguageManager.
 func _on_language_changed():
 	var language_manager = get_node("/root/LanguageManager")  # Adjust the path as necessary
 	if language_manager:
@@ -32,29 +34,29 @@ func _on_language_changed():
 	else:
 		print("LanguageManager node not found")
 
+# Spawns all weapon types at random positions within the game viewport, ensuring each weapon type is represented multiple times.
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():
 		if not weapons.has(weapon_type) or weapons[weapon_type] == null:
 			for idx in range(12):
 				spawn_weapon(weapon_type,idx)
 
+# Instantiates a weapon of the specified type at a random position within the game viewport and tracks it in the weapons dictionary.
 func spawn_weapon(weapon_type, index):
 	var weapon_scene = weapon_scenes[weapon_type]
 	if weapon_scene == null:
 		print("Weapon scene not loaded for: ", weapon_type)
 		return
-
 	var weapon = weapon_scene.instantiate()
 	var subviewport = get_node("CanvasLayer/ColorRect/SubViewport")
 	var x_pos = randf() * subviewport.size.x - subviewport.size.x/2
 	var y_pos = randf() * subviewport.size.y - subviewport.size.y/2
-	#var x_pos = randf() * get_viewport_rect().size.x
-	#var y_pos = randf() * get_viewport_rect().size.y
 	print("Viewport size", subviewport.size.x)
 	weapon.position = Vector2(x_pos, y_pos)
 	add_child(weapon)
 	weapons[weapon_type+"___"+str(index)] = {"instance": weapon, "timeout": 15.0}
 
+# Updates the game state each frame, particularly managing weapon timeouts and respawning weapons as necessary.
 func _process(delta):
 	var to_remove = []
 	for weapon_type in weapons.keys():
@@ -72,73 +74,74 @@ func _process(delta):
 		var idx = split[1]
 		spawn_weapon(type,idx)  # Re-spawn the weapon
 
-# spwan normal bears on Path2D 
+# Spawns a normal bear enemy at a random position along a predefined path (Path 2D).
 func spawn_bear():
 	var new_bear = preload("res://Characters/enemy_bear.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_bear.global_position = %PathFollow2D.global_position
 	add_child(new_bear)
 
-# spwan big bears on Path2D 
+# Spawns a big bear enemy at a random position along a predefined path (Path 2D).
 func spawn_bear_big():
 	var new_bear_big = preload("res://Characters/enemy_bear_big.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_bear_big.global_position = %PathFollow2D.global_position
 	add_child(new_bear_big)
 
-# spwan gunman bears on Path2D 
+# Spawns a gunman bear enemy at a random position along a predefined path (Path 2D).
 func spawn_bear_gunman():
 	var new_bear_gunman = preload("res://Characters/enemy_bear_gunman.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_bear_gunman.global_position = %PathFollow2D.global_position
 	add_child(new_bear_gunman)
-	
-# spwan normal bears when timeout: 1s
+
+# Spawns a normal bear enemy every second when the timer expires.
 func _on_timer_timeout():
 	spawn_bear()
-	
-# spwan big bears when timeout: 3s
+
+# Spawns a big bear enemy every 3 seconds when the timer expires.
 func _on_timer_big_timeout():
 	spawn_bear_big()
-	
-# spwan gunman bears when timeout: 2s
+
+# Spawns a gunman bear enemy every 2 seconds when the timer expires.
 func _on_timer_gunman_timeout():
 	spawn_bear_gunman()
 
-#func _on_farm_health_depleted():
-	#%gameOver.visible = true
-	#get_tree().paused = truesa
-
-# pause the game and show the "you arer dead" layer when player_fox has 0 health 
+# pause the game and show the "you are dead" layer when player_fox has 0 health 
 func _on_player_fox_fox_health_depleted():
 	%gameOver.visible = true
 	get_tree().paused = true
 
-# pause the game and show the "you arer dead" layer when the farm has 0 health 
+# pause the game and show the "you are dead" layer when the farm has 0 health 
 func _on_static_body_2d_health_depleted():
 	%gameOver.visible = true
 	get_tree().paused = true
 
+# Restarts the current scene when the "Play Again" button is pressed, resuming the game.
 func _on_play_again_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
+# Returns to the main menu scene when the "Go to Main Menu" button is pressed, resuming the game.
 func _on_go_main_menu_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://views/menu.tscn")
 
+# Resumes the game from a paused state and hides the pause menu.
 func _on_resume_game_pressed():
 	button_click.play()
 	get_tree().paused = false
 	%pauseMenu.visible = false
 
+# Restarts the current scene when the "Restart Game" button is pressed, resuming the game.
 func _on_restart_game_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
+# Pauses the game and shows the pause menu when the "Pause" button is pressed.
 func _on_pause_button_pressed():
 	button_click.play()
 	get_tree().paused = true

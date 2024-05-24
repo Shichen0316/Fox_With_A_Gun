@@ -34,7 +34,10 @@ movie_writer/movie_file="./2024.4.20.avi"
 [file_customization]
 
 folder_colors={
-"res://languages/": "purple"
+"res://Asset/": "green",
+"res://assets/": "green",
+"res://languages/": "green",
+"res://level/": "green"
 }
 
 [input]

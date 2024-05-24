@@ -1,3 +1,4 @@
+# This file containt the interactive tutorial.
 extends Node2D
 
 var weapon_scenes = {
@@ -11,26 +12,22 @@ var weapons = {}  # Changed to dictionary for tracking individual weapons
 
 var is_visible: bool = false
 
-#func _ready():
-	#spawn_bear()
-	
+# Instantiates a weapon of the specified type at a random position within the game viewport and tracks it in the weapons dictionary.
 func spawn_weapon(weapon_type, index):
 	var weapon_scene = weapon_scenes[weapon_type]
 	if weapon_scene == null:
 		print("Weapon scene not loaded for: ", weapon_type)
 		return
-
 	var weapon = weapon_scene.instantiate()
 	var subviewport = get_node("CanvasLayer/ColorRect/SubViewport")
 	var x_pos = randf() * subviewport.size.x - subviewport.size.x/2
 	var y_pos = randf() * subviewport.size.y - subviewport.size.y/2
-	#var x_pos = randf() * get_viewport_rect().size.x
-	#var y_pos = randf() * get_viewport_rect().size.y
 	print("Viewport size", subviewport.size.x)
 	weapon.position = Vector2(x_pos, y_pos)
 	add_child(weapon)
 	weapons[weapon_type+"___"+str(index)] = {"instance": weapon, "timeout": 15.0}
 
+# Updates the game state each frame, particularly managing weapon timeouts and respawning weapons as necessary.
 func _process(delta):
 	var to_remove = []
 	for weapon_type in weapons.keys():
@@ -46,8 +43,6 @@ func _process(delta):
 		var split = weapon_type.split("___")
 		var type = split[0]
 		var idx = split[1]
-		
-		# spawn_weapon(type,idx)  # Re-spawn the weapon
 
 # spwan normal bears on Path2D 
 func spawn_bear():
@@ -81,12 +76,6 @@ func _on_timer_big_timeout():
 # spwan gunman bears when timeout: 2s
 func _on_timer_gunman_timeout():
 	spawn_bear_gunman()
-	
-	
-#func _on_farm_health_depleted():
-	#%gameOver.visible = true
-	#get_tree().paused = truesa
-
 
 # pause the game and show the "you arer dead" layer when player_fox has 0 health 
 func _on_player_fox_fox_health_depleted():
@@ -98,14 +87,14 @@ func _on_static_body_2d_health_depleted():
 	%gameOver.visible = true
 	get_tree().paused = true
 
-#language manager
+# language manager
 func _on_button_pressed():
 	if LanguageManager.current_language == "EN":
 		LanguageManager.set_language("HU")
 	else:
 		LanguageManager.set_language("EN")
 	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
-	
+
 func _input(event):
 	if Input. is_action_just_pressed("up"):
 		%w.visible = false

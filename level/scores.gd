@@ -1,3 +1,4 @@
+# This file takes care of displaying the player's score. The score is the time until the player survived.
 extends CanvasLayer
 
 var survival_time: float = 0.0

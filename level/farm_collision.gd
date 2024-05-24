@@ -1,3 +1,4 @@
+# This file manages the health of the base during the gameplay.
 extends StaticBody2D
 
 signal health_depleted
@@ -17,4 +18,4 @@ func _physics_process(delta):
 		%ProgressBar.value = health 
 		# if the health is 0, siginal health_depleted is sent 
 		if health <= 0.0:	
-			health_depleted.emit()	
+			health_depleted.emit()

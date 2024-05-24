@@ -18,7 +18,7 @@ To set up Cherry Ice Cream on your local machine, follow these steps:
 3. Open the unpacked cherryicecream directory in Godot Engine
 
 
-## Git Usage
+## Git usage
 
 Updating your local repository (in Webstorm):
 1. Open 'Git' window (bottom left)
@@ -31,12 +31,12 @@ Pushing to remote:
 2. Also open 'Git window' (bottom left)
 3. Click fetch all remotes - just making sure you local repo is up-to-date
 4. Ctrl click branch you want to commit on and click update
-5. In 'Commit' window Check files you want to commit or click all changes
+5. In 'Commit' window check files you want to commit or click all changes
 6. Write commmit message
 7. Click 'Commit and push'
 
 
-## Project Structure
+## Project structure
 ```text
 cherryicecream/
 ├── .godot/                        

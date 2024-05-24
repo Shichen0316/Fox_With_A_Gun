@@ -1,3 +1,4 @@
+# This file contains the dictionary and language switching basics like grouping nodes.
 # LanguageManager node acts as the central manager for language changes
 extends Node
 
@@ -64,6 +65,7 @@ var current_language = "EN"
 func get_text(key: String) -> String:
 	return languages[current_language].get(key, "Translation not found")	
 
+# retrieve the translation for the given key in the current language for the keybinds list
 #func get_list(key: String) -> Array:
 	#return languages[current_language].get(key, [])
 
