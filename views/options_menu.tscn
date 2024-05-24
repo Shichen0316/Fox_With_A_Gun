@@ -130,32 +130,32 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Language" type="Button" parent="optionsMenu/VBoxContainer"]
+[node name="Language" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Language"
 
-[node name="Resolution" type="Button" parent="optionsMenu/VBoxContainer"]
+[node name="Resolution" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Resolution"
 
-[node name="Controls" type="Button" parent="optionsMenu/VBoxContainer"]
+[node name="Controls" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Controls"
 
-[node name="Volume" type="Button" parent="optionsMenu/VBoxContainer"]
-visible = false
+[node name="Volume" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Volume"
 
-[node name="Back" type="Button" parent="optionsMenu/VBoxContainer"]
+[node name="Back" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
@@ -280,14 +280,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="English" type="Button" parent="showLanguage/VBoxContainer"]
+[node name="English" type="Button" parent="showLanguage/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "English
 "
 
-[node name="Hungarian" type="Button" parent="showLanguage/VBoxContainer"]
+[node name="Hungarian" type="Button" parent="showLanguage/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
@@ -295,13 +295,14 @@ text = "Hungarian
 "
 
 [node name="Swedish" type="Button" parent="showLanguage/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Swedish
 "
 
-[node name="backFromLanguage" type="Button" parent="showLanguage/VBoxContainer"]
+[node name="backFromLanguage" type="Button" parent="showLanguage/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")

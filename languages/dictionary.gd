@@ -5,11 +5,24 @@ var languages = {
 	"EN": {
 		"changeLanguage":"Change language",
 		"youAreDead":"You are dead",
-		# ... more translations
+		"gameTitle":"Game Title",
+		"Hungarian":"Hungarian",
+		"English":"English",
+		"backFromLanguage":"Back",
+		"Language":"Language",
+		"Resolution":"Resolution",
+		#"Controls":"Controls"
 	},
 		"HU": {
 		"changeLanguage":"Másik nyelv",
 		"youAreDead":"A játéknak vége",
+		"gameTitle":"Játék címe",
+		"Hungarian":"Magyar",
+		"English":"Angol",
+		"backFromLanguage":"Vissza",
+		"Language":"Nyelv",
+		"Resolution":"Felbontás",
+		#"Controls":"Irányítás"
 	},
 }
 

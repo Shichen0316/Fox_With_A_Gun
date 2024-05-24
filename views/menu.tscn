@@ -102,7 +102,7 @@ theme_override_constants/separation = 10
 [node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="gameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(20, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4

@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 LanguageManager="*res://languages/LanguageManager.tscn"
 languageDictionary="*res://languages/dictionary.gd"
-GameController="res://Level/gameController.gd"
 
 [display]
 
