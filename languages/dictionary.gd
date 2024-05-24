@@ -3,6 +3,7 @@ extends Node
 
 signal language_changed
 
+# dictionary for elements in English and Hungarian
 var languages = {
 	"EN": {
 		"changeLanguage":"Change language",
@@ -25,7 +26,7 @@ var languages = {
 		"Main_Menu":"Main_Menu",
 		"resumeGame":"Resume",
 		"restartGame":"Restart",
-		"goMainMenu":"Back to Main Menu",
+		"goMainMenu":"Back to Main",
 		"gameOver":"Game Over",
 		"playAgain":"Play Again",
 	},
@@ -56,6 +57,7 @@ var languages = {
 	},
 }
 
+# defualt language is English
 var current_language = "EN"
 
 # retrieve the translation for the given key in the current language
@@ -77,10 +79,10 @@ func set_language(language_code: String) -> void:
 # update all translatable nodes with the correct language text
 func update_translatable_nodes() -> void:
 	for node in get_tree().get_nodes_in_group("translatable"):
-		var key = node.name  # Use node's name as the key
-		if node.has_method("set_text"):  # Check if node has set_text method
+		var key = node.name  # using the node's name as the key
+		if node.has_method("set_text"): 
 			node.set_text(get_text(key))
-		elif node.has_method("set_caption"):  # For Controls that use captions
+		elif node.has_method("set_caption"):  # for Controls that use captions
 			node.set_caption(get_text(key))
 		else: 
 			node.text = get_text(key)

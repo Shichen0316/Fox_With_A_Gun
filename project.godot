@@ -34,8 +34,7 @@ movie_writer/movie_file="./2024.4.20.avi"
 [file_customization]
 
 folder_colors={
-"res://controllers/": "yellow",
-"res://languages/": "gray"
+"res://languages/": "purple"
 }
 
 [input]

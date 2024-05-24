@@ -7,6 +7,6 @@ extends Area2D
 
 # This function is called when a body enters the collision area
 #func _on_body_entered(body):
-	#if body.name == "res://Level/farm_collision.tscn":
+	#if body.name == "res://level/farm_collision.tscn":
 		#print("Collision detected with OtherObject")
 		#animation_player.play("bear_attacking_right")

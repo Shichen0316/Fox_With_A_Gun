@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://deivo21ags3re"]
 
-[ext_resource type="Script" path="res://farm.gd" id="1_bmrku"]
+[ext_resource type="Script" path="res://Level/farm.gd" id="1_bmrku"]
 [ext_resource type="Texture2D" uid="uid://cudx28jumdgy3" path="res://Asset/Map/Farm/house.png" id="2_xdjlj"]
 [ext_resource type="AudioStream" uid="uid://bfgbu1sy5l1wq" path="res://assets/audio/music-background.mp3" id="3_k88ko"]
 
