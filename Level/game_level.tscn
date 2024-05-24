@@ -15006,7 +15006,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.541176)
 
-[node name="Label" type="Label" parent="pauseMenu/ColorRect" groups=["translatable"]]
+[node name="Label" type="Label" parent="pauseMenu/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -15033,7 +15033,7 @@ grow_vertical = 2
 scale = Vector2(0.898073, 1.03934)
 theme_override_constants/separation = 10
 
-[node name="resumeGame" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer"]
+[node name="resumeGame" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer" groups=["translatable"]]
 process_mode = 3
 custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
@@ -15043,9 +15043,8 @@ theme = SubResource("Theme_k365l")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("14_1xqba")
-text = "Resume"
 
-[node name="restartGame" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer"]
+[node name="restartGame" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer" groups=["translatable"]]
 process_mode = 3
 custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
@@ -15055,9 +15054,8 @@ theme = SubResource("Theme_k365l")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("14_1xqba")
-text = "Restart"
 
-[node name="goMainMenu" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer"]
+[node name="goMainMenu" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer" groups=["translatable"]]
 process_mode = 3
 custom_minimum_size = Vector2(90, 2.08165e-12)
 layout_mode = 2
@@ -15067,7 +15065,6 @@ theme = SubResource("Theme_ajw4a")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("14_1xqba")
-text = "Main menu"
 
 [node name="pistol" parent="." instance=ExtResource("8_wonmh")]
 position = Vector2(1.78571, 75)

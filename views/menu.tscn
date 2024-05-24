@@ -102,7 +102,7 @@ theme_override_constants/separation = 10
 [node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="gameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="gameTitle" type="Label" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 custom_minimum_size = Vector2(20, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -112,12 +112,11 @@ theme_override_constants/outline_size = 15
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_8tg3q")
 theme_override_font_sizes/font_size = 30
-text = "GAME TITLE
-"
+text = "Foxy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 custom_minimum_size = Vector2(70, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,7 +126,7 @@ theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("1_w0r5y")
 text = "Play"
 
-[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 custom_minimum_size = Vector2(70, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -136,7 +135,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_w0r5y")
 text = "Tutorial"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 custom_minimum_size = Vector2(70, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -145,7 +144,7 @@ theme_override_colors/icon_hover_color = Color(0.223529, 0.223529, 0.223529, 0.3
 theme_override_fonts/font = ExtResource("1_w0r5y")
 text = "Options"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 custom_minimum_size = Vector2(70, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 4

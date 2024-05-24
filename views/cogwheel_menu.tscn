@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://views/cogwheel_menu.gd" id="1_0mn4i"]
 [ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="1_uex6k"]
-[ext_resource type="Texture2D" uid="uid://jmm45xq8mgbp" path="res://assets/characters/pixel-background-fox.jpeg" id="2_clf1t"]
+[ext_resource type="Texture2D" uid="uid://bvu7430d062x" path="res://assets/characters/pixel-background-fox.jpeg" id="2_clf1t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2do8"]
 bg_color = Color(0.462745, 0.858824, 0.988235, 1)
@@ -81,27 +81,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Resume_Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume_Game" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Resume Game"
 
-[node name="Resolution" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resolution" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Resolution"
 
-[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Controls"
 
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Volume"
 
-[node name="Main_Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Main_Menu" type="Button" parent="MarginContainer/VBoxContainer" groups=["translatable"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Main Menu"
@@ -111,5 +112,5 @@ text = "Main Menu"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Main_Menu" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]

@@ -16,6 +16,21 @@ func _ready():
 	spawn_bear()
 	spawn_bear()
 	spawn_all_weapons()
+	_on_language_changed()
+
+func _on_language_changed():
+	var language_manager = get_node("/root/LanguageManager")  # Adjust the path as necessary
+	if language_manager:
+		for node in get_tree().get_nodes_in_group("translatable"):
+			var key = node.name
+			if node.has_method("set_text"):
+				node.set_text(language_manager.get_text(key))
+			elif node.has_method("set_caption"):
+				node.set_caption(language_manager.get_text(key))
+			else:
+				node.text = language_manager.get_text(key)
+	else:
+		print("LanguageManager node not found")
 
 func spawn_all_weapons():
 	for weapon_type in weapon_scenes.keys():
@@ -55,7 +70,6 @@ func _process(delta):
 		var split = weapon_type.split("___")
 		var type = split[0]
 		var idx = split[1]
-		
 		spawn_weapon(type,idx)  # Re-spawn the weapon
 
 # spwan normal bears on Path2D 
@@ -64,14 +78,14 @@ func spawn_bear():
 	%PathFollow2D.progress_ratio = randf()
 	new_bear.global_position = %PathFollow2D.global_position
 	add_child(new_bear)
-	
+
 # spwan big bears on Path2D 
 func spawn_bear_big():
 	var new_bear_big = preload("res://Characters/enemy_bear_big.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_bear_big.global_position = %PathFollow2D.global_position
 	add_child(new_bear_big)
-	
+
 # spwan gunman bears on Path2D 
 func spawn_bear_gunman():
 	var new_bear_gunman = preload("res://Characters/enemy_bear_gunman.tscn").instantiate()
@@ -90,12 +104,10 @@ func _on_timer_big_timeout():
 # spwan gunman bears when timeout: 2s
 func _on_timer_gunman_timeout():
 	spawn_bear_gunman()
-	
-	
+
 #func _on_farm_health_depleted():
 	#%gameOver.visible = true
 	#get_tree().paused = truesa
-
 
 # pause the game and show the "you arer dead" layer when player_fox has 0 health 
 func _on_player_fox_fox_health_depleted():
@@ -107,40 +119,25 @@ func _on_static_body_2d_health_depleted():
 	%gameOver.visible = true
 	get_tree().paused = true
 
-#language manager
-func _on_button_pressed():
-	if LanguageManager.current_language == "EN":
-		LanguageManager.set_language("HU")
-	else:
-		LanguageManager.set_language("EN")
-	$Language_switcher.text = LanguageManager.get_text("changeLanguage")
-
-
-
 func _on_play_again_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-
 func _on_go_main_menu_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://views/menu.tscn")
-	
-	
 
 func _on_resume_game_pressed():
 	button_click.play()
 	get_tree().paused = false
 	%pauseMenu.visible = false
 
-
 func _on_restart_game_pressed():
 	button_click.play()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
-
 
 func _on_pause_button_pressed():
 	button_click.play()
