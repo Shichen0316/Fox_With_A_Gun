@@ -8,7 +8,6 @@ var can_fire = true
 @onready var rocket_shot = $rocketShot
 @onready var rocket_pickup = $rocketPickup
 
-
 func _ready():
 	animation_tree.active = true
 
@@ -20,7 +19,7 @@ func _physics_process(delta):
 	
 	if picked == true:
 		self.global_position = get_node("/root/gameLevel/playerFox/rocketLauncherPosition").global_position
-		
+
 func shoot():
 	const ROCKET_BULLET = preload("res://Weapons/rocket_launcher_bullet.tscn")
 	var new_rocketlauncher_bullet = ROCKET_BULLET.instantiate()
@@ -31,7 +30,7 @@ func shoot():
 	await get_tree().create_timer(fire_rate). timeout
 	can_fire = true
 	rocket_shot.play()
-	
+
 func _input(event):
 	if Input. is_action_just_pressed("ui_pick"):
 		var bodies = $playerDetector.get_overlapping_bodies()
@@ -53,11 +52,11 @@ func _process(delta):
 		
 	if Input. is_action_just_pressed("fire") and can_fire and picked == true:
 		shoot()
-		
+
 #func _on_timer_timeout():
 	#if picked == true:
 		#shoot()
-		
+
 func update_animtaion_parameters():
 	if(Input.is_action_pressed("fire") and picked == true):
 		animation_tree["parameters/conditions/fire"] = true

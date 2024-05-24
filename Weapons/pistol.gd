@@ -33,8 +33,7 @@ func shoot():
 	await get_tree().create_timer(fire_rate). timeout
 	can_fire = true
 	gun_shot.play()
-	
-	
+
 func _input(event):
 	# use input "ui_pick" to be picked up by player 
 	if Input. is_action_just_pressed("ui_pick"):
@@ -51,7 +50,7 @@ func _input(event):
 		picked = false
 		# after dropping a weapon, canPick will be set to true
 		get_node("/root/gameLevel/playerFox").canPick = true
-		
+
 func _process(delta):
 	update_animtaion_parameters()
 	# after picking up the waepon, it looks at the mouse position 
@@ -65,7 +64,7 @@ func _process(delta):
 #func _on_timer_timeout():
 	#if picked == true:
 		#shoot()
-		
+
 # if the input "fire" is triggered, play the fire animation, otherwise not play 
 func update_animtaion_parameters():
 	if(Input.is_action_pressed("fire") and picked == true):
@@ -74,4 +73,3 @@ func update_animtaion_parameters():
 	else:
 		animation_tree["parameters/conditions/fire"] = false
 		animation_tree["parameters/conditions/idle"] = true
-		

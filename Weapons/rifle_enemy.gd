@@ -15,7 +15,7 @@ func _physics_process(delta):
 		var target_enemy = enemies_in_range.front()
 		# aim player 
 		look_at(player.global_position)
-		
+
 # generate new bullets at the shootingPoint, timer used to control fire rate
 func shoot():
 	const RIFLE_BULLET = preload("res://Weapons/rifle_bullet_enemy.tscn")
@@ -26,7 +26,7 @@ func shoot():
 		
 func _on_timer_timeout():
 		shoot()
-		
+
 #func _process(delta):
 	#update_animtaion_parameters()
 	

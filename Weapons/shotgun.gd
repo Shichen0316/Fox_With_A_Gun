@@ -19,7 +19,7 @@ func _physics_process(delta):
 	
 	if picked == true:
 		self.global_position = get_node("/root/gameLevel/playerFox/shotgunPosition").global_position
-		
+
 func shoot():
 	const RIFLE_BULLET = preload("res://Weapons/rifle_bullet.tscn")
 	var new_rifle_bullet1 = RIFLE_BULLET.instantiate()
@@ -50,7 +50,7 @@ func shoot():
 	await get_tree().create_timer(fire_rate). timeout
 	can_fire = true
 	shotgun_shot.play()
-	
+
 func _input(event):
 	if Input. is_action_just_pressed("ui_pick"):
 		var bodies = $playerDetector.get_overlapping_bodies()
@@ -63,7 +63,7 @@ func _input(event):
 	if Input. is_action_just_pressed("ui_drop") and picked == true:
 		picked = false
 		get_node("/root/gameLevel/playerFox").canPick = true
-		
+
 func _process(delta):
 	update_animtaion_parameters()
 	
@@ -72,11 +72,11 @@ func _process(delta):
 		
 	if Input. is_action_just_pressed("fire") and can_fire and picked == true:
 		shoot()
-		
+
 #func _on_timer_timeout():
 	#if picked == true:
 		#shoot()
-		
+
 func update_animtaion_parameters():
 	if(Input.is_action_pressed("fire") and picked == true):
 		animation_tree["parameters/conditions/fire"] = true
