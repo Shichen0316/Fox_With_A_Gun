@@ -1,38 +1,22 @@
 #extends Node
 #
-#var time_survived = 0.0  # tracks the time the player has survived
-#var score = 0  # holds the current score
+#var time_survived = 0.0  # Tracks the total time survived in seconds
+#var score_timer = Timer.new()  # Timer for updating the score every second
 #
 #func _ready():
-	#pass # Replace with function body.
-#
-#
-#func _process(delta):
-	#time_survived += delta
-	#update_score()  
-#
-#func update_score():
-	#score = int(time_survived * 100)  # Converts time to score
+	## Initialize the score timer
+	#score_timer.wait_time = 1  # Update score every second
+	#score_timer.autostart = true
+	#score_timer.one_shot = false
+	#score_timer.timeout.connect(_on_score_timer_timeout)
+	#add_child(score_timer)
+	#score_timer.start()
 	#update_score_display()
 #
 #func update_score_display():
-	#var score_label = get_node("ScoreLabel")  # Adjust the node path as necessary
-	#score_label.text = "Score: " + str(score)
+	#$Score.text = "Time: %d" % int(time_survived)
 #
-#func save_score():
-	#var file = File.new()
-	#if file.open("user://score.save", File.WRITE) == OK:
-		#file.store_var(score)
-		#file.close()
-	#else:
-		#print("Failed to open file for writing.")
-#
-#func load_score():
-	#var file = File.new()
-	#if file.file_exists("user://score.save"):
-		#if file.open("user://score.save", File.READ) == OK:
-			#score = file.get_var()
-			#file.close()
-			#update_score_display()
-		#else:
-			#print("Failed to open file for reading.")
+#func _on_score_timer_timeout():
+	## Increment the time survived every second
+	#time_survived += 1
+	#update_score_display()

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmyjg80f1a1mn"]
+
+[ext_resource type="Script" path="res://Level/scores.gd" id="1_83218"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_83218")
+
+[node name="survivalTimeCount" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score:"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
