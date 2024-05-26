@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b7064mifk8dfy"]
+[gd_scene load_steps=56 format=3 uid="uid://b7064mifk8dfy"]
 
 [ext_resource type="Script" path="res://Level/tutorial_level.gd" id="1_sffvi"]
 [ext_resource type="Texture2D" uid="uid://bn5vn3gec5j4i" path="res://assets/map/trees.png" id="2_nub28"]
@@ -12,19 +12,21 @@
 [ext_resource type="Texture2D" uid="uid://yxf5cdv7x04q" path="res://assets/map/field.png" id="10_8a83f"]
 [ext_resource type="Texture2D" uid="uid://cyghm74t07qem" path="res://assets/map/ground tree.png" id="11_yiscm"]
 [ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://level/farm_collision.tscn" id="12_efgla"]
-[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="13_tlf4u"]
-[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://weapons/pistol.tscn" id="14_oj1ur"]
-[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://weapons/rifle.tscn" id="15_q5qbp"]
-[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://weapons/shotgun.tscn" id="16_8knaa"]
-[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://weapons/rocket_launcher.tscn" id="17_lcc72"]
-[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://weapons/light_saber.tscn" id="18_5p4o8"]
-[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://weapons/laser_gun.tscn" id="19_cvq0v"]
+[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://Characters/character_body_2d.tscn" id="13_tlf4u"]
+[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/pistol.tscn" id="14_oj1ur"]
+[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="15_q5qbp"]
+[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://Weapons/shotgun.tscn" id="16_8knaa"]
+[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://Weapons/rocket_launcher.tscn" id="17_lcc72"]
+[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://Weapons/light_saber.tscn" id="18_5p4o8"]
+[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="19_cvq0v"]
 [ext_resource type="Texture2D" uid="uid://d1jr2x7gix68w" path="res://assets/UI/w.jpg" id="20_10745"]
 [ext_resource type="Texture2D" uid="uid://dqp5cl57pswdb" path="res://assets/UI/s.jpg" id="21_vpbov"]
 [ext_resource type="Texture2D" uid="uid://bqyfcvpggqih7" path="res://assets/UI/a.jpg" id="22_ix0gq"]
 [ext_resource type="Texture2D" uid="uid://72bif0885u1u" path="res://assets/UI/d.jpg" id="23_iiypn"]
 [ext_resource type="Texture2D" uid="uid://bmlcswtxmf78h" path="res://assets/UI/f.jpg" id="24_ydhku"]
 [ext_resource type="Texture2D" uid="uid://diixtosg15epc" path="res://assets/UI/g.jpg" id="25_rj6oy"]
+[ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="26_vdawk"]
+[ext_resource type="AudioStream" uid="uid://ss5l1hahgact" path="res://assets/audio/button-click.mp3" id="27_uruft"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gcjrd"]
 tile_data = PackedInt32Array(0, 10, 2, 65536, 10, 3, 131072, 10, 2, 196608, 10, 3, 1, 65546, 2, 65537, 65546, 3, 131073, 65546, 2, 196609, 65546, 3, 2, 10, 2, 65538, 10, 3, 131074, 10, 2, 196610, 10, 3, 3, 65546, 2, 65539, 65546, 3, 131075, 65546, 2, 196611, 65546, 3)
@@ -14791,6 +14793,86 @@ font_weight = 375
 font_stretch = 75
 msdf_size = 30
 
+[sub_resource type="SystemFont" id="SystemFont_dnws1"]
+font_names = PackedStringArray("Rockwell")
+font_weight = 375
+font_stretch = 75
+msdf_size = 30
+
+[sub_resource type="SystemFont" id="SystemFont_5sbiw"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j05hy"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0brd"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1xwy0"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="SystemFont" id="SystemFont_pg1mu"]
+font_names = PackedStringArray("Rockwell")
+font_weight = 375
+font_stretch = 75
+msdf_size = 30
+
+[sub_resource type="Theme" id="Theme_omg73"]
+default_font = SubResource("SystemFont_pg1mu")
+default_font_size = 21
+Button/fonts/font = SubResource("SystemFont_5sbiw")
+Button/styles/hover = SubResource("StyleBoxLine_j05hy")
+Button/styles/normal = SubResource("StyleBoxLine_x0brd")
+Button/styles/pressed = SubResource("StyleBoxLine_1xwy0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8gv4"]
+bg_color = Color(0.462745, 0.858824, 0.988235, 1)
+border_width_bottom = 3
+border_color = Color(0.0235294, 0.270588, 0.439216, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_offset = Vector2(1, 1)
+anti_aliasing_size = 0.936
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyd44"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+border_width_bottom = 3
+border_color = Color(0.0235294, 0.270588, 0.439216, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_offset = Vector2(1, 1)
+anti_aliasing_size = 0.936
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpbyn"]
+bg_color = Color(0.211765, 0.796078, 0.960784, 1)
+border_width_bottom = 3
+border_color = Color(0.0235294, 0.270588, 0.439216, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_offset = Vector2(1, 1)
+anti_aliasing_size = 0.936
+
+[sub_resource type="Theme" id="Theme_rpm6a"]
+Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
+Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
+Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
+
+[sub_resource type="Theme" id="Theme_8pks7"]
+Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
+Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
+Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
+
 [node name="gameLevel" type="Node2D"]
 position = Vector2(-3, 0)
 scale = Vector2(1.12, 1)
@@ -15062,8 +15144,122 @@ position = Vector2(-42, 142)
 scale = Vector2(0.056, 0.05)
 texture = ExtResource("25_rj6oy")
 
+[node name="SettingLayer" type="CanvasLayer" parent="."]
+offset = Vector2(-10, 10)
+transform = Transform2D(1, 0, 0, 1, -10, 10)
+
+[node name="Label" type="Label" parent="SettingLayer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 31.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.86
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_dnws1")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+
+[node name="pauseButton" type="Button" parent="SettingLayer/Label"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_right = 6.0
+offset_bottom = 21.0
+grow_horizontal = 0
+rotation = 1.5708
+theme = SubResource("Theme_omg73")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "="
+icon_alignment = 2
+expand_icon = true
+
+[node name="pauseMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+offset = Vector2(5, 2.08165e-12)
+transform = Transform2D(1, 0, 0, 1, 5, 2.08165e-12)
+
+[node name="ColorRect" type="ColorRect" parent="pauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 0.541176)
+
+[node name="Label" type="Label" parent="pauseMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -21.0
+offset_right = 0.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/ColorRect/Label"]
+process_priority = 2
+process_physics_priority = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.898073, 1.03934)
+theme_override_constants/separation = 10
+
+[node name="resumeGame" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer" groups=["translatable"]]
+process_mode = 3
+custom_minimum_size = Vector2(90, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_rpm6a")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("26_vdawk")
+text = "Resume"
+
+[node name="goMainMenu" type="Button" parent="pauseMenu/ColorRect/Label/VBoxContainer" groups=["translatable"]]
+process_mode = 3
+custom_minimum_size = Vector2(90, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_8pks7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("26_vdawk")
+text = "Main Menu"
+
+[node name="buttonClick" type="AudioStreamPlayer" parent="."]
+process_priority = 1
+stream = ExtResource("27_uruft")
+volume_db = -22.955
+pitch_scale = 1.29
+
 [connection signal="health_depleted" from="farm" to="." method="_on_static_body_2d_health_depleted"]
 [connection signal="fox_health_depleted" from="playerFox" to="." method="_on_player_fox_fox_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer_big" to="." method="_on_timer_big_timeout"]
 [connection signal="timeout" from="Timer_gunman" to="." method="_on_timer_gunman_timeout"]
+[connection signal="pressed" from="SettingLayer/Label/pauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/Label/VBoxContainer/resumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/Label/VBoxContainer/goMainMenu" to="." method="_on_go_main_menu_pressed"]

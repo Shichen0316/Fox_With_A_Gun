@@ -1,5 +1,6 @@
 # This file containt the interactive tutorial.
 extends Node2D
+@onready var button_click = $buttonClick
 
 var weapon_scenes = {
 	"rifle": preload("res://weapons/rifle.tscn"),
@@ -115,3 +116,21 @@ func _input(event):
 		
 	if Input. is_action_just_pressed("ui_drop"):
 		%g.visible = false 
+
+
+func _on_resume_game_pressed():
+	button_click.play()
+	get_tree().paused = false
+	%pauseMenu.visible = false
+
+
+func _on_go_main_menu_pressed():
+	button_click.play()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://views/menu.tscn")
+
+
+func _on_pause_button_pressed():
+	button_click.play()
+	get_tree().paused = true
+	%pauseMenu.visible = true
