@@ -1,4 +1,7 @@
 extends Control
+#This file handles all the buttons for the options menu page
+
+
 @onready var show_controls = $showControls
 @onready var options_menu = $optionsMenu
 #@onready var back_from_resolution = $showResolution/VBoxContainer/backFromResolution
@@ -7,6 +10,7 @@ extends Control
 @onready var show_language = $showLanguage
 @onready var button_click = $buttonClick
 #@onready var item_list = $showControls/VBoxContainer/ItemList  #declare item_list
+
 
 func _ready():
 	_on_language_changed()  #updates text immediately when the scene is loaded	
@@ -35,6 +39,7 @@ func _on_language_changed():
 		#for item in items:
 			#item_list.add_item(item)
 
+#shows the language area which is invisible to start with
 func _on_language_pressed():
 	button_click.play()
 	show_language.visible = true
@@ -45,36 +50,37 @@ func _on_language_pressed():
 	#show_resolution.visible = true
 	#options_menu.visible = false
 
+#Shows the control area which is invisible to start with
 func _on_controls_pressed():
 	button_click.play()
 	show_controls.visible = true
 	options_menu.visible = false
 
+#goes back to main menu
 func _on_back_pressed():
 	button_click.play()
 	get_tree().change_scene_to_file("res://views/menu.tscn")
 
+#Hides the control area and displays just the options menu again
 func _on_return_pressed():
 	button_click.play()
 	show_controls.visible = false
 	options_menu.visible = true
 
-#func _on_back_from_resolution_pressed():
-	#button_click.play()
-	#show_resolution.visible = false
-	#options_menu.visible = true
-
+#Hides the language area and shows the options menu again
 func _on_back_from_language_pressed():
 	button_click.play()
 	show_language.visible = false
 	options_menu.visible = true
 
+#Changes language to english
 func _on_english_pressed():
 	button_click.play()
 	show_language.visible = false
 	options_menu.visible = true
 	LanguageManager.set_language("EN")
 
+#changes language to hungarian
 func _on_hungarian_pressed():
 	button_click.play()
 	show_language.visible = false

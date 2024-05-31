@@ -1,25 +1,26 @@
-[gd_scene load_steps=49 format=3 uid="uid://b1yhwik1r6m2a"]
+[gd_scene load_steps=47 format=3 uid="uid://cran6xkxgxmvw"]
 
-[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://characters/character_body_2d.tscn" id="1_m5c1q"]
+[ext_resource type="PackedScene" uid="uid://btkd5w5tomd3q" path="res://Characters/character_body_2d.tscn" id="1_m5c1q"]
 [ext_resource type="Script" path="res://Level/game_level.gd" id="1_rfna0"]
-[ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://Level/farm_collision.tscn" id="3_0mng0"]
+[ext_resource type="PackedScene" uid="uid://bx02vvxyp34ml" path="res://level/farm_collision.tscn" id="3_0mng0"]
 [ext_resource type="Texture2D" uid="uid://cu2x5kx1sxh0f" path="res://assets/map/Bush.png" id="4_136fd"]
-[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://weapons/light_saber.tscn" id="5_55v5a"]
+[ext_resource type="PackedScene" uid="uid://c81fsp1x4a6ae" path="res://Weapons/light_saber.tscn" id="5_55v5a"]
 [ext_resource type="Texture2D" uid="uid://dcoxphuqgjgfo" path="res://assets/map/treeTiles.png" id="5_sus1a"]
 [ext_resource type="Texture2D" uid="uid://d0pb2iwlecif6" path="res://assets/map/Fence.png" id="6_gyiwj"]
-[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://weapons/rifle.tscn" id="7_65obb"]
+[ext_resource type="PackedScene" uid="uid://cj5wnucfdi7ph" path="res://Weapons/rifle.tscn" id="7_65obb"]
 [ext_resource type="Texture2D" uid="uid://dcah2r88dxltq" path="res://assets/map/hut 1.png" id="7_dh28n"]
 [ext_resource type="Texture2D" uid="uid://cv5jfce0tpurw" path="res://assets/map/hut 2.png" id="8_n156e"]
-[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://weapons/pistol.tscn" id="8_wonmh"]
-[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://weapons/shotgun.tscn" id="9_6b73h"]
+[ext_resource type="PackedScene" uid="uid://sn4p7jd61luf" path="res://Weapons/pistol.tscn" id="8_wonmh"]
+[ext_resource type="PackedScene" uid="uid://r40jijbrt0s6" path="res://Weapons/shotgun.tscn" id="9_6b73h"]
 [ext_resource type="Texture2D" uid="uid://bkqska0ms35xf" path="res://assets/map/mix bushes.png" id="9_qno1l"]
 [ext_resource type="Texture2D" uid="uid://bn5vn3gec5j4i" path="res://assets/map/trees.png" id="10_dpd74"]
-[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://weapons/rocket_launcher.tscn" id="10_tvs0n"]
+[ext_resource type="PackedScene" uid="uid://dnu7rm7au1n7u" path="res://Weapons/rocket_launcher.tscn" id="10_tvs0n"]
 [ext_resource type="Texture2D" uid="uid://yxf5cdv7x04q" path="res://assets/map/field.png" id="10_vblqe"]
 [ext_resource type="Texture2D" uid="uid://cyghm74t07qem" path="res://assets/map/ground tree.png" id="11_ek6pi"]
 [ext_resource type="Texture2D" uid="uid://h4jamiciypfr" path="res://assets/map/Map.png" id="11_l5si0"]
 [ext_resource type="FontFile" uid="uid://brnqbntbxrjle" path="res://assets/UI/RifficFree-Bold.ttf" id="14_1xqba"]
-[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://weapons/laser_gun.tscn" id="19_roejw"]
+[ext_resource type="PackedScene" uid="uid://1p81a6agcsxh" path="res://Weapons/laser_gun.tscn" id="19_roejw"]
+[ext_resource type="Script" path="res://level/timerPanel.gd" id="21_8yut1"]
 [ext_resource type="AudioStream" uid="uid://ss5l1hahgact" path="res://assets/audio/button-click.mp3" id="21_cny2d"]
 [ext_resource type="AudioStream" uid="uid://bfgbu1sy5l1wq" path="res://assets/audio/music-background.mp3" id="22_nas7i"]
 
@@ -14776,7 +14777,7 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8gv4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8js3"]
 bg_color = Color(0.462745, 0.858824, 0.988235, 1)
 border_width_bottom = 3
 border_color = Color(0.0235294, 0.270588, 0.439216, 1)
@@ -14787,7 +14788,7 @@ corner_radius_bottom_left = 6
 shadow_offset = Vector2(1, 1)
 anti_aliasing_size = 0.936
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyd44"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01447"]
 bg_color = Color(0.211765, 0.796078, 0.960784, 1)
 border_width_bottom = 3
 border_color = Color(0.0235294, 0.270588, 0.439216, 1)
@@ -14798,7 +14799,7 @@ corner_radius_bottom_left = 6
 shadow_offset = Vector2(1, 1)
 anti_aliasing_size = 0.936
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpbyn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a27rt"]
 bg_color = Color(0.211765, 0.796078, 0.960784, 1)
 border_width_bottom = 3
 border_color = Color(0.0235294, 0.270588, 0.439216, 1)
@@ -14810,14 +14811,14 @@ shadow_offset = Vector2(1, 1)
 anti_aliasing_size = 0.936
 
 [sub_resource type="Theme" id="Theme_k365l"]
-Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
-Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
-Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
+Button/styles/hover = SubResource("StyleBoxFlat_s8js3")
+Button/styles/normal = SubResource("StyleBoxFlat_01447")
+Button/styles/pressed = SubResource("StyleBoxFlat_a27rt")
 
 [sub_resource type="Theme" id="Theme_ajw4a"]
-Button/styles/hover = SubResource("StyleBoxFlat_c8gv4")
-Button/styles/normal = SubResource("StyleBoxFlat_uyd44")
-Button/styles/pressed = SubResource("StyleBoxFlat_hpbyn")
+Button/styles/hover = SubResource("StyleBoxFlat_s8js3")
+Button/styles/normal = SubResource("StyleBoxFlat_01447")
+Button/styles/pressed = SubResource("StyleBoxFlat_a27rt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxwol"]
 size = Vector2(2594, 4)
@@ -14825,36 +14826,20 @@ size = Vector2(2594, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwoom"]
 size = Vector2(4, 1994)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lra0l"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="Theme" id="Theme_cwkjg"]
+Panel/styles/panel = SubResource("StyleBoxLine_lra0l")
+
 [sub_resource type="SystemFont" id="SystemFont_0tr2h"]
 font_names = PackedStringArray("Rockwell")
 font_weight = 375
 font_stretch = 75
 msdf_size = 30
-
-[sub_resource type="SystemFont" id="SystemFont_5sbiw"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_j05hy"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0brd"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_1xwy0"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="Theme" id="Theme_axwof"]
-default_font = SubResource("SystemFont_0tr2h")
-default_font_size = 21
-Button/fonts/font = SubResource("SystemFont_5sbiw")
-Button/styles/hover = SubResource("StyleBoxLine_j05hy")
-Button/styles/normal = SubResource("StyleBoxLine_x0brd")
-Button/styles/pressed = SubResource("StyleBoxLine_1xwy0")
 
 [node name="gameLevel" type="Node2D"]
 position = Vector2(-3, 0)
@@ -15123,12 +15108,20 @@ shape = SubResource("RectangleShape2D_hwoom")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer2"]
+[node name="timerPanel" type="Panel" parent="CanvasLayer2"]
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 78.0
+offset_bottom = 34.0
+theme = SubResource("Theme_cwkjg")
+script = ExtResource("21_8yut1")
+
+[node name="Minutes" type="Label" parent="CanvasLayer2/timerPanel"]
 custom_minimum_size = Vector2(20, 2.08165e-12)
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 128.0
-offset_bottom = 41.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 27.0
+offset_bottom = 29.0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 1.86
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -15136,8 +15129,45 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 8
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_0tr2h")
-theme_override_font_sizes/font_size = 8
-text = "Score: 0"
+theme_override_font_sizes/font_size = 12
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="CanvasLayer2/timerPanel"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+offset_left = 27.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 29.0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.86
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_0tr2h")
+theme_override_font_sizes/font_size = 12
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="mSeconds" type="Label" parent="CanvasLayer2/timerPanel"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+offset_left = 48.0
+offset_top = 1.0
+offset_right = 72.0
+offset_bottom = 29.0
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.86
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_0tr2h")
+theme_override_font_sizes/font_size = 12
+text = "00"
+vertical_alignment = 1
 
 [node name="SettingLayer" type="CanvasLayer" parent="."]
 offset = Vector2(-10, 10)
@@ -15154,11 +15184,12 @@ grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 1.86
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 20
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_0tr2h")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 18
 horizontal_alignment = 2
 
 [node name="pauseButton" type="Button" parent="SettingLayer/Label"]
@@ -15167,14 +15198,19 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -8.0
-offset_right = 6.0
-offset_bottom = 21.0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 31.0
+offset_bottom = 39.0
 grow_horizontal = 0
 rotation = 1.5708
-theme = SubResource("Theme_axwof")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 text = "="
+flat = true
 icon_alignment = 2
 expand_icon = true
 
@@ -15186,7 +15222,7 @@ pitch_scale = 1.29
 
 [node name="backgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_nas7i")
-volume_db = -18.0
+volume_db = -40.286
 autoplay = true
 max_distance = 500.0
 attenuation = 0.7

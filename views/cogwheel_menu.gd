@@ -1,5 +1,5 @@
 extends Control
-
+#CThis scene and script is currently not used. But would be helpful to have if we wanted to implement another type of menu in the future.
 
 @onready var resume_game = $MarginContainer/VBoxContainer/Resume_Game as Button
 
