@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b7064mifk8dfy"]
+[gd_scene load_steps=56 format=3 uid="uid://b7064mifk8dfy"]
 
 [ext_resource type="Script" path="res://Level/tutorial_level.gd" id="1_sffvi"]
 [ext_resource type="Texture2D" uid="uid://bn5vn3gec5j4i" path="res://assets/map/trees.png" id="2_nub28"]
@@ -14843,37 +14843,6 @@ font_weight = 375
 font_stretch = 75
 msdf_size = 30
 
-[sub_resource type="SystemFont" id="SystemFont_5sbiw"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_j05hy"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0brd"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_1xwy0"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 0
-
-[sub_resource type="SystemFont" id="SystemFont_pg1mu"]
-font_names = PackedStringArray("Rockwell")
-font_weight = 375
-font_stretch = 75
-msdf_size = 30
-
-[sub_resource type="Theme" id="Theme_omg73"]
-default_font = SubResource("SystemFont_pg1mu")
-default_font_size = 21
-Button/fonts/font = SubResource("SystemFont_5sbiw")
-Button/styles/hover = SubResource("StyleBoxLine_j05hy")
-Button/styles/normal = SubResource("StyleBoxLine_x0brd")
-Button/styles/pressed = SubResource("StyleBoxLine_1xwy0")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jb1jb"]
 bg_color = Color(0.462745, 0.858824, 0.988235, 1)
 border_width_bottom = 3
@@ -15023,6 +14992,7 @@ text = "Game Over"
 [node name="VBoxContainer" type="VBoxContainer" parent="gameOver/ColorRect/Label"]
 process_priority = 2
 process_physics_priority = 2
+layout_mode = 0
 offset_left = -15.5
 offset_top = 45.5
 offset_right = 202.5
@@ -15250,14 +15220,18 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -8.0
-offset_right = 6.0
-offset_bottom = 21.0
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 28.0
+offset_bottom = 38.0
 grow_horizontal = 0
 rotation = 1.5708
-theme = SubResource("Theme_omg73")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 text = "="
+flat = true
 icon_alignment = 2
 expand_icon = true
 
