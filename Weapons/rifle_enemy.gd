@@ -1,3 +1,4 @@
+# This file is for the functions of enemy's rifle 
 extends Area2D
 
 @onready var animation_tree : AnimationTree = $AnimationTree

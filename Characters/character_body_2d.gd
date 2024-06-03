@@ -1,3 +1,4 @@
+# This file is for the movement, health, and animation for the main character - fox 
 extends CharacterBody2D
 
 signal fox_health_depleted
@@ -8,6 +9,7 @@ signal fox_health_depleted
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+# fox health is set to 100, and canPick var is true 
 var health = 100.0 
 var canPick = true
 
@@ -46,7 +48,7 @@ func _physics_process(_delta):
 	if health <= 0.0:
 		fox_health_depleted.emit()
 			
-	
+	# trigger different animations when the movement status is changed 
 func update_animation_parameters(move_input : Vector2):
 	if(move_input != Vector2.ZERO):
 		animation_tree.set("parameters/walking/blend_position", move_input)

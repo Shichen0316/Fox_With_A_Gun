@@ -1,3 +1,4 @@
+# This file is for the functions of enemy's rifle bullet 
 extends Area2D
 
 var bullet_distance = 0

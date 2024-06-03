@@ -1,3 +1,4 @@
+# This file is for the movement, health, and animation for big enemy bear 
 extends CharacterBody2D
 
 var health = 15.0
@@ -37,7 +38,8 @@ func take_damage():
 	# if health is 0, disappear 
 	if health == 0:
 		queue_free()
-		
+
+# update the animations when movement status is changed 				
 func update_animtaion_parameters():
 	if(velocity == Vector2.ZERO):
 		animation_tree["parameters/conditions/attacking"] = true

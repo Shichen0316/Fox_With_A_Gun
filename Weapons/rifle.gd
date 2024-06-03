@@ -1,3 +1,4 @@
+# This file is for the functions of rifle 
 extends Area2D
 
 var picked = false

@@ -4,6 +4,17 @@
 
 Welcome to Cherry Ice Cream, a 2D shooter game where you play as a Succubus defending a base from waves of enemies. This game focuses on engaging mechanics, responsive controls, and an exciting survival logic using Godot Engine.
 
+## The chosen platform: Godot 4 
+
+We used the game engine/development platform Godot 4 for the implementation of the game. Because it is a well-renowned 2D game development platform and has a relatively lower requirement for the hardware of the computer. 
+The animation system of the platform is advanced and beginner friendly, making it easier for the group to implement the animation needed in the game. Also Godot 4 uses GDScript as coding language, which has an similar syntax as Python, 
+making it easier for us to learn and get our hands on it. At the same time, the operating logic of the application is relatively easier to understand and the scene, node system is helpful and useful when it comes to implementing a certain function. 
+
+## Problems or difficulties 
+
+One biggest problem of Godot 4 we found out during the implementation is that it does not work super well with Github, making it harder and more complicated for us to collaborate within the group. 
+We ended up choosing to divide the work more strictly and upload the entire project file to share Github project when updates or adjustments are made, which works but causes a lot of meaningless trouble 
+that could have been avoided if the plug in Github function of Godot 4 functioned well. 
 
 ## Installation
 

@@ -35,6 +35,9 @@ movie_writer/movie_file="./2024.4.20.avi"
 
 folder_colors={
 "res://Asset/": "green",
+"res://Characters/": "green",
+"res://Level/": "green",
+"res://Weapons/": "green",
 "res://assets/": "green",
 "res://languages/": "green",
 "res://level/": "green"

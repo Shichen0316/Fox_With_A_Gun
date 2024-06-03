@@ -1,3 +1,4 @@
+# This file is for the functions of rocket launcher bullet 
 extends Area2D
 
 var bullet_distance = 0
