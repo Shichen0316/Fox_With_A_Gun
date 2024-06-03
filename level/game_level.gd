@@ -1,6 +1,9 @@
 # This file handles the initialization and gameplay mechanics, including spawning enemies, managing weapons, handling player interactions, and implementing language changes.
 extends Node2D
 @onready var button_click = $buttonClick
+@onready var game_label = $CanvasLayer2/gameLabel
+@onready var game_timer = $CanvasLayer2/gameLabel/gameTimer
+
 
 var weapon_scenes = {
 	"rifle": preload("res://weapons/rifle.tscn"),
@@ -146,3 +149,9 @@ func _on_pause_button_pressed():
 	button_click.play()
 	get_tree().paused = true
 	%pauseMenu.visible = true
+
+
+
+
+func _on_game_timer_ready():
+	game_label.text=game_timer

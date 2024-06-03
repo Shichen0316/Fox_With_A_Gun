@@ -150,6 +150,7 @@ theme_override_fonts/font = ExtResource("3_b25ok")
 text = "Controls"
 
 [node name="Volume" type="Button" parent="optionsMenu/VBoxContainer" groups=["translatable"]]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_b25ok")
@@ -310,7 +311,7 @@ text = "Back"
 
 [node name="optionsMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xy8lt")
-volume_db = -29.476
+volume_db = -57.247
 autoplay = true
 
 [node name="buttonClick" type="AudioStreamPlayer" parent="."]

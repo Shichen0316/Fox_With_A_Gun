@@ -80,7 +80,7 @@ func _on_timer_gunman_timeout():
 
 # pause the game and show the "you arer dead" layer when player_fox has 0 health 
 func _on_player_fox_fox_health_depleted():
-	%youAreDead.visible = true
+	%gameOver.visible = true
 	get_tree().paused = true
 
 # pause the game and show the "you arer dead" layer when the farm has 0 health 
@@ -134,3 +134,9 @@ func _on_pause_button_pressed():
 	button_click.play()
 	get_tree().paused = true
 	%pauseMenu.visible = true
+
+
+func _on_play_again_pressed():
+	button_click.play()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
